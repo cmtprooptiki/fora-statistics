@@ -30,6 +30,18 @@ def main():
     if 'submitted' not in st.session_state:
         st.session_state.submitted = False
 
+    sql = """
+    select * from hs_survey_411958
+        """
+
+        
+    
+    rows,columnames = run_query(conn,sql)
+
+    # st.write(columnames)
+    dfdata=pd.DataFrame(rows,columns=columnames)
+    st.write("All Data from Query",dfdata)
+
 
     # Define the sidebar form
 #     with st.sidebar.form("my_sidebar_form"):
