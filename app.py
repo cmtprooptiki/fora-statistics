@@ -77,10 +77,38 @@ def main():
     dfdata=pd.DataFrame(rows,columns=columns_headers)
     dfdata["idiotita"] = dfdata["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
     st.write("All Data from Query",dfdata)
+
+    #Create a "Likert Df":
+    # Create a dictionary to map Likert scale values to columns (1, 2, 3, 4, 5)
+    likert_mapping = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
+    # Initialize a new DataFrame to store the reshaped data
+    reshaped_data = pd.DataFrame()
+    # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
+    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
+        # Melt the DataFrame to stack the Likert scale values into rows
+        melted = dfdata.melt(id_vars='idiotita', value_vars=[question], var_name='question')
+
+        # Pivot the melted DataFrame to count the occurrences of each Likert scale value
+        pivoted = melted.pivot_table(index='question', columns='value', values='idiotita', aggfunc='count', fill_value=0)
+
+        # Reset the index and rename the columns
+        pivoted.reset_index(inplace=True)
+        pivoted.rename(columns=likert_mapping, inplace=True)
+
+        # Add the reshaped data to the final DataFrame
+        Likert_data = pd.concat([reshaped_data, pivoted])
+
+    # Reset the index of the final reshaped DataFrame
+    Likert_data.reset_index(drop=True, inplace=True)
+    # Set the 'question' column as the index
+    Likert_data.set_index('question', inplace=True)
+    # Print the reshaped DataFrame
+    st.write(Likert_data)
     
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
     ###################################################################################################################
+
 
     #Create three columns
     col1,col2 = st.columns(2)
