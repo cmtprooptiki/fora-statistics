@@ -98,7 +98,7 @@ def main():
 
     with col3:
         st.write("Under construction")
-        fig=px.bar(dfdata,x=dfdata["idiotita"].value_counts().index,y=fdata["idiotita"].value_counts().values,title="Ιδιότητα Ερωτηθέντων")
+        fig=px.bar(dfdata,x=dfdata["idiotita"].value_counts().index,y=dfdata["idiotita"].value_counts().values,title="Ιδιότητα Ερωτηθέντων")
         fig.show()
     
     #FILTRO GIA IDIOTHTA
