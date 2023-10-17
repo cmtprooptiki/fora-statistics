@@ -82,7 +82,7 @@ def main():
     ###################################################################################################################
 
     #Create three columns
-    col1,col2,col3 = st.columns(3)
+    col1,col2 = st.columns(2)
 
     with col1:
         st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
@@ -94,11 +94,7 @@ def main():
         fig.update_traces(textposition='inside', textinfo='percent+label')
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
-
-    with col3:
-        fig=px.bar(dfdata,x=dfdata["idiotita"].value_counts().index,y=dfdata["idiotita"].value_counts().values,title="Ιδιότητα Ερωτηθέντων")
-        st.plotly_chart(fig)
-    
+        
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
     selected_idiotita = "Όλες οι Ιδιότητες"
