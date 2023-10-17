@@ -75,6 +75,7 @@ def main():
     ]
     # st.write(columnames)
     dfdata=pd.DataFrame(rows,columns=columns_headers)
+    dfdata["idiotita"] = df["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
     st.write("All Data from Query",dfdata)
     
     ###################################################################################################################
@@ -89,12 +90,12 @@ def main():
 
     with col2:
         idiotita_counts=dfdata["idiotita"].value_counts()
-        fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.0)
+        fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.6)
         # Customize the layout if needed
         fig.update_traces(textposition='inside', textinfo='percent+label')
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
-        
+
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
     selected_idiotita = "Όλες οι Ιδιότητες"
@@ -115,27 +116,10 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-        # Filter and count the values in the 'q1' column
-        q1_counts = filtered_data['yn1'].value_counts()
-        # Create a donut chart using Plotly Express
-        fig = px.pie(filtered_data,values=q1_counts.values, names=q1_counts.index, title="Γνωρίζετε το ρόλο της ΕΚΑΠΥ στις προμήθειες φαρμάκου;", hole=0.6)
-        # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
-        # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
-
 
     # Inside the second column
     with col5:
         st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
-        # Filter and count the values in the 'q1' column
-        q1_counts = filtered_data['yn2'].value_counts()
-        # Create a donut chart using Plotly Express
-        fig = px.pie(filtered_data,values=q1_counts.values, names=q1_counts.index, title="Γνωρίζετε το κανονιστικό πλαίσιο κλινικών μελετών στην Ελλάδα;", hole=0.6)
-        # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
-        # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
 
     # Create of another two columns
     col6, col7 = st.columns(2)
@@ -143,34 +127,11 @@ def main():
     # Inside the third column
     with col6:
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-        # Filter and count the values in the 'q1' column
-        q1_counts = filtered_data['yn3'].value_counts()
-        # Create a donut chart using Plotly Express
-        fig = px.pie(filtered_data,values=q1_counts.values, names=q1_counts.index, title="Γνωρίζετε το ρόλο του ΟΔΙΠΥ αναφορικά με το πλαίσιο διασφάλισης Ποιότητας στα νοσοκομεία;", hole=0.6)
-        # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
-        # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
 
     # Inside the forth column
     with col7:
         st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-        # Filter and count the values in the 'q1' column
-        q1_counts = filtered_data['yn4'].value_counts()
-        # Create a donut chart using Plotly Express
-        fig = px.pie(filtered_data,values=q1_counts.values, names=q1_counts.index, title="Γνωρίζετε το συστήματα DRGs;", hole=0.6)
-        # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
-        # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
-
-
-
-
-
-
-
-
+        
 
 
 
