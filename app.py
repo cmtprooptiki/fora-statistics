@@ -6,6 +6,7 @@ from streamlit import session_state
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import timedelta
+import numpy as np
 
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
@@ -106,10 +107,10 @@ def main():
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
     st.write(reshaped_data)
-    a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
-    st.write(a)
-    # x_data=npreshaped_data.iloc[0:1,0:5]
-    # st.write(x_data)
+    # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
+    # st.write(a)
+    x_data=np.asarray(reshaped_data)#.iloc[0:1,0:5]
+    st.write(x_data)
 
 
     
