@@ -27,7 +27,7 @@ def main():
     conn = init_connection()
    
   
-    st.set_page_config(page_title="Sidebar Form Example")
+    st.set_page_config(page_title="Sidebar Form Example",layout="wide")
     if 'submitted' not in st.session_state:
         st.session_state.submitted = False
 
