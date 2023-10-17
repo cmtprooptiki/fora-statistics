@@ -98,8 +98,8 @@ def main():
 
     with col3:
         st.write("Under construction")
-        px.bar(idiotita_counts,x=idiotita_counts.index,y=idiotita_counts.values,color=idiotita_counts.index)
-
+        fig=px.bar(dfdata,x="idiotita",y="count",title="Ιδιότητα Ερωτηθέντων")
+        fig.show()
     
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
