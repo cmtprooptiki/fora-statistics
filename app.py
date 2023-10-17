@@ -22,6 +22,7 @@ def update():
 
 def main():
 
+    #hello
 
     conn = init_connection()
    
@@ -75,8 +76,7 @@ def main():
     # st.write(columnames)
     dfdata=pd.DataFrame(rows,columns=columns_headers)
     st.write("All Data from Query",dfdata)
-
-
+    st.write("test vagelis")
     # Define the sidebar form
 #     with st.sidebar.form("my_sidebar_form"):
 #         st.write("## date2222 range Form")
