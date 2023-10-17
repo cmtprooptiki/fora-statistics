@@ -108,8 +108,8 @@ def main():
     st.write(reshaped_data)
     a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     st.write(a)
-    x_data=reshaped_data.iloc[0:1,0:5]
-    st.write(x_data)
+    # x_data=npreshaped_data.iloc[0:1,0:5]
+    # st.write(x_data)
 
 
     
