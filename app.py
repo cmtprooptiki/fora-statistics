@@ -96,7 +96,7 @@ def main():
         # Set the legend position to be below the chart
         fig.update_layout(legend=dict(orientation="h"))
         # Adjust the width and height of the chart
-        fig.update_layout(width=600, height=400)
+        fig.update_layout(width=800, height=500)
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
 
