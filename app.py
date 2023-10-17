@@ -106,6 +106,7 @@ def main():
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
+    reshaped_data=reshaped_data.fillna(1)
     st.write(reshaped_data)
     # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     # st.write(a)
