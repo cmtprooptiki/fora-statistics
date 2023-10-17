@@ -105,6 +105,7 @@ def main():
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     st.write(reshaped_data)
+    st.write(reshaped_data["l3"].value_counts())
     
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
