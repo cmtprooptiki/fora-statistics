@@ -89,6 +89,13 @@ def main():
 
     with col2:
         st.write("Under construction")
+        idiotita_counts=dfdata["idiotita"].value_counts()
+        fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.0)
+        # Customize the layout if needed
+        fig.update_traces(textposition='inside', textinfo='percent+label')
+        # Display the chart in your Streamlit app
+        st.plotly_chart(fig)
+
 
     with col3:
         st.write("Under construction")
@@ -100,14 +107,14 @@ def main():
     # Create a filter for "idiotita"
     idiotita_options = list(dfdata['idiotita'].unique())
     idiotita_options.append("Όλες οι Ιδιότητες")
-    selected_idiotita = st.selectbox("Επιλέξτε ιδιότητα", idiotita_options, index=idiotita_options.index(selected_idiotita))
+    selected_idiotita = st.selectbox("Επιλέξτε ιδιότητα:", idiotita_options, index=idiotita_options.index(selected_idiotita))
     # Filter the data based on the selected "idiotita"
     if selected_idiotita == "Όλες οι Ιδιότητες":
         filtered_data = dfdata
         selected_idiotita = "Όλες οι ιδιότητες"
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
-        
+
     # Create two columns
     col4, col5 = st.columns(2)
 
