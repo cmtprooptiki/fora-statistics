@@ -104,9 +104,9 @@ def main():
     reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
+    reshaped_data=reshaped_data.drop(columns=["NAN"])
     st.write(reshaped_data)
-    st.write(dfdata["l3"].value_counts())
-    
+
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
     ###################################################################################################################
