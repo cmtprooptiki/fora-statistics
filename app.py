@@ -103,6 +103,7 @@ def main():
     # Set the 'question' column as the index
     reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
+    reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     st.write(reshaped_data)
     
     ###################################################################################################################
