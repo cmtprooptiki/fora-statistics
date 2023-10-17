@@ -80,6 +80,19 @@ def main():
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
     ###################################################################################################################
+
+    #Create three columns
+    col1,col2,col3 = st.columns(3)
+
+    with col1:
+        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
+
+    with col2:
+        st.write("Under construction")
+
+    with col3:
+        st.write("Under construction")
+
     
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
@@ -94,20 +107,7 @@ def main():
         selected_idiotita = "Όλες οι ιδιότητες"
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
-
-    #Create two columns
-    col1,col2,col3 = st.columns(3)
-
-    #col1
-    with col1:
-        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=filtered_data["submitdate"].count())
-
-    with col2:
-        st.write("Under construction")
-
-    with col3:
-        st.write("Under construction")
-
+        
     # Create two columns
     col4, col5 = st.columns(2)
 
