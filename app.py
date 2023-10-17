@@ -37,9 +37,43 @@ def main():
         
     
     rows,columnames = run_query(conn,sql)
+    columns_headers=[
+        'id',
+        'token',
+        'submitdate',
+        'lastpage',
+        'startlanguage',
+        'seed',
+        'startdate',
+        'datestamp',
+        'idiotita',	
+        'idiotita_other',	
+        'text1',	
+        'yn1',
+        'l1',	
+        'l2',
+        'stl_yn1',
+        'stl_l1',
+        'text2'	,
+        'yn2',
+        'l3',
+        'stl_yn2',
+        'stl_l2',
+        'text3',
+        'yn3',
+        'l4',
+        'stl_yn3',
+        'stl_l3',
+        'text4',
+        'yn4',
+        'l5',
+        'l6',
+        'stl_yn4',
+        'stl_l4'
 
+    ]
     # st.write(columnames)
-    dfdata=pd.DataFrame(rows,columns=columnames)
+    dfdata=pd.DataFrame(rows,columns=columns_headers)
     st.write("All Data from Query",dfdata)
 
 
