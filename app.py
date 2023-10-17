@@ -110,7 +110,7 @@ def main():
     # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     # st.write(a)
     x_data=np.asarray(reshaped_data)#.iloc[0:1,0:5]
-    st.write(x_data)
+    st.write(x_data[0:1,0:5])
 
 
     
