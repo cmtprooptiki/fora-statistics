@@ -96,14 +96,14 @@ def main():
         pivoted.rename(columns=likert_mapping, inplace=True)
 
         # Add the reshaped data to the final DataFrame
-        Likert_data = pd.concat([Likert_data, pivoted])
+        reshaped_data = pd.concat([reshaped_data, pivoted])
 
     # Reset the index of the final reshaped DataFrame
-    Likert_data.reset_index(drop=True, inplace=True)
+    reshaped_data.reset_index(drop=True, inplace=True)
     # Set the 'question' column as the index
-    Likert_data.set_index('question', inplace=True)
+    reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
-    st.write(Likert_data)
+    st.write(reshaped_data)
     
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
