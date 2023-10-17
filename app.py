@@ -96,7 +96,7 @@ def main():
         pivoted.rename(columns=likert_mapping, inplace=True)
 
         # Add the reshaped data to the final DataFrame
-        Likert_data = pd.concat([reshaped_data, pivoted])
+        Likert_data = pd.concat([Likert_data, pivoted])
 
     # Reset the index of the final reshaped DataFrame
     Likert_data.reset_index(drop=True, inplace=True)
