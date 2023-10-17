@@ -88,14 +88,13 @@ def main():
         st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
 
     with col2:
-        idiotita_counts=dfdata["idiotita"].value_counts()
-        fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.0)
+       # idiotita_counts=dfdata["idiotita"].value_counts()
+        #fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.0)
         # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
+        #fig.update_traces(textposition='inside', textinfo='percent+label')
         # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
-
-
+        #st.plotly_chart(fig)
+        
     with col3:
         st.write("Under construction")
         fig=px.bar(dfdata,x=dfdata["idiotita"].value_counts().index,y=dfdata["idiotita"].value_counts().values,title="Ιδιότητα Ερωτηθέντων")
