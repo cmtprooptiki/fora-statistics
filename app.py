@@ -106,6 +106,17 @@ def main():
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
     st.write(reshaped_data)
+    x_data=reshaped_data.iloc[0:1,1:5]
+    st.write(x_data)
+
+
+    
+
+
+
+
+
+
 
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
