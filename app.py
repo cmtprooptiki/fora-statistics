@@ -77,6 +77,31 @@ def main():
     dfdata=pd.DataFrame(rows,columns=columns_headers)
     st.write("All Data from Query",dfdata)
     
+    ###################################################################################################################
+    ###############################################START VAGGELIS######################################################
+    ###################################################################################################################
+    
+    #FILTRO GIA IDIOTHTA
+    # Set the default selection to "Total"
+    selected_idiotita = "Όλες οι Ιδιότητες"
+    # Create a filter for "idiotita"
+    idiotita_options = list(dfdata['idiotita'].unique())
+    idiotita_options.append("Όλες οι Ιδιότητες")
+    selected_idiotita = st.selectbox("Επιλέξτε ιδιότητα", idiotita_options, index=idiotita_options.index(selected_idiotita))
+    # Filter the data based on the selected "idiotita"
+    if selected_idiotita == "Όλες οι Ιδιότητες":
+        filtered_data = dfdata
+        selected_idiotita = "Όλες οι ιδιότητες"
+    else:
+        filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
+
+
+    ###################################################################################################################
+    ###############################################END VAGGELIS######################################################
+    ###################################################################################################################
+
+
+
     # Define the sidebar form
 #     with st.sidebar.form("my_sidebar_form"):
 #         st.write("## date2222 range Form")
