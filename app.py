@@ -100,7 +100,7 @@ def main():
 
     #col1
     with col1:
-        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
+        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=filtered_data["submitdate"].count())
 
     with col2:
         st.write("Under construction")
