@@ -83,7 +83,7 @@ def main():
     ###################################################################################################################
 
     #Create three columns
-    col1,col2 = st.columns([1,2])
+    col1,col2 = st.columns(2)
 
     with col1:
         st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
@@ -92,11 +92,11 @@ def main():
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.6)
         # Customize the layout if needed
-        fig.update_traces(textposition='outside', textinfo='percent')
+        fig.update_traces(textposition='ayto', textinfo='percent')
         # Set the legend position to be below the chart
         fig.update_layout(legend=dict(orientation="h"))
         # Adjust the width and height of the chart
-        fig.update_layout(width=800, height=600)
+        fig.update_layout(width=600, height=400)
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
 
