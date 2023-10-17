@@ -95,11 +95,24 @@ def main():
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
 
+    #Create two columns
+    col1,col2,col3 = st.columns(3)
+
+    #col1
+    with col1:
+        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
+
+    with col2:
+        st.write("Under construction")
+
+    with col3:
+        st.write("Under construction")
+
     # Create two columns
-    col1, col2 = st.columns(2)
+    col4, col5 = st.columns(2)
 
     # Inside the first column
-    with col1:
+    with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         # Filter and count the values in the 'q1' column
         q1_counts = filtered_data['yn1'].value_counts()
@@ -112,7 +125,7 @@ def main():
 
 
     # Inside the second column
-    with col2:
+    with col5:
         st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
         # Filter and count the values in the 'q1' column
         q1_counts = filtered_data['yn2'].value_counts()
@@ -124,10 +137,10 @@ def main():
         st.plotly_chart(fig)
 
     # Create of another two columns
-    col3, col4 = st.columns(2)
+    col6, col7 = st.columns(2)
 
     # Inside the third column
-    with col3:
+    with col6:
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
         # Filter and count the values in the 'q1' column
         q1_counts = filtered_data['yn3'].value_counts()
@@ -139,7 +152,7 @@ def main():
         st.plotly_chart(fig)
 
     # Inside the forth column
-    with col4:
+    with col7:
         st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
         # Filter and count the values in the 'q1' column
         q1_counts = filtered_data['yn4'].value_counts()
