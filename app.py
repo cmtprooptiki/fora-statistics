@@ -95,6 +95,8 @@ def main():
         fig.update_traces(textposition='auto', textinfo='percent')
         # Set the legend position to be below the chart
         fig.update_layout(legend=dict(orientation="h"))
+        # Adjust the width and height of the chart
+        fig.update_layout(width=800, height=600)
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
 
