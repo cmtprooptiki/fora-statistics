@@ -92,7 +92,9 @@ def main():
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.6)
         # Customize the layout if needed
-        fig.update_traces(textposition='inside', textinfo='percent+label')
+        fig.update_traces(textposition='inside', textinfo='percent')
+        # Set the legend position to be below the chart
+        fig.update_layout(legend=dict(orientation="h"))
         # Display the chart in your Streamlit app
         st.plotly_chart(fig)
 
