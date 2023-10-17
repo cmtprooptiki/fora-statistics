@@ -31,7 +31,7 @@ def main():
         st.session_state.submitted = False
 
     sql = """
-    select * from hs_survey_411958
+    select * from hs_survey_411958 where submitdate IS NOT NULL
         """
 
         
