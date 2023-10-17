@@ -88,7 +88,6 @@ def main():
         st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
 
     with col2:
-        st.write("Under construction")
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων;", hole=0.0)
         # Customize the layout if needed
@@ -99,6 +98,7 @@ def main():
 
     with col3:
         st.write("Under construction")
+        px.bar(dfdata,x="idiotita",y=idiotita_counts.values,color=idiotita_counts.index)
 
     
     #FILTRO GIA IDIOTHTA
