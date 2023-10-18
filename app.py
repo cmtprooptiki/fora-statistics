@@ -130,7 +130,7 @@ def main():
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = reshaped_data.question
+    questions = reshaped_data.iloc[:,0]
     strongdisagree = reshaped_data.iloc[:, 1]
     disagree = reshaped_data.iloc[:, 2]
     neutral = reshaped_data.iloc[:, 3]
