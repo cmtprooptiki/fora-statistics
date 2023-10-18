@@ -185,12 +185,12 @@ def main():
     )
     st.write(chart_data)
     st.bar_chart(chart_data)
-    reshaped_data2 = pd.melt(reshaped_data.reset_index())#, id_vars=["index"])
-    st.write(reshaped_data2)
+    chart_data2 = pd.melt(chart_data.reset_index())#, id_vars=["index"])
+    st.write(chart_data2)
 
     # Horizontal stacked bar chart
     chart = (
-        alt.Chart(reshaped_data2)
+        alt.Chart(chart_data)
         .mark_bar()
         .encode(
             x=alt.X("value", type="quantitative", title=""),
