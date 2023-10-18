@@ -137,12 +137,12 @@ def main():
     agree = reshaped_data.iloc[:, 4]
     strongagree = reshaped_data.iloc[:, 5]
 
-    # Handle NaN values by replacing them with zeros
-    strongdisagree = strongdisagree.fillna(0)
-    disagree = disagree.fillna(0)
-    neutral = neutral.fillna(0)
-    agree = agree.fillna(0)
-    strongagree = strongagree.fillna(0)
+    # # Handle NaN values by replacing them with zeros
+    # strongdisagree = strongdisagree.fillna(0)
+    # disagree = disagree.fillna(0)
+    # neutral = neutral.fillna(0)
+    # agree = agree.fillna(0)
+    # strongagree = strongagree.fillna(0)
 
     ind = [x for x, _ in enumerate(questions)]
 
