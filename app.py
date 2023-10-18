@@ -181,6 +181,7 @@ def main():
     #######################################################################################################################################################
     st.bar_chart(reshaped_data)
     reshaped_data2 = pd.melt(reshaped_data.reset_index(), id_vars=["index"])
+    st.write(reshaped_data2)
 
     # Horizontal stacked bar chart
     chart = (
