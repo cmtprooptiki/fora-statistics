@@ -229,7 +229,7 @@ def main():
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         # Populate the variables from the CSV
-        questions = reshaped_data.iloc[4:].index
+        questions = reshaped_data.iloc[4:6,:].index
         strongdisagree = reshaped_data.iloc[4:,0]
         disagree = reshaped_data.iloc[4:,1]
         neutral = reshaped_data.iloc[4:,2]
