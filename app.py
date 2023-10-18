@@ -180,7 +180,7 @@ def main():
     ############################################################################telos 2o test diagramma#####################################################
     #######################################################################################################################################################
     st.bar_chart(reshaped_data)
-    reshaped_data2 = pd.melt(reshaped_data.reset_index(), id_vars=["question"])
+    reshaped_data2 = pd.melt(reshaped_data.reset_index(), id_vars=["index"])
     st.write(reshaped_data2)
 
     # Horizontal stacked bar chart
