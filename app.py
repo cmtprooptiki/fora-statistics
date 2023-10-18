@@ -315,17 +315,41 @@ def main():
         chart_data44 = pd.melt(chart_data4.reset_index(), id_vars=["index"])
         #st.write(chart_data44)
 
-        # Horizontal stacked bar chart
+        # Define the custom legend labels
+        legend_labels = {
+            '0': 'Διαφωνώ Απόλυτα',
+            '1': 'Διαφωνώ',
+            '2': 'Ούτε Συμφωνώ ούτε Διαφωνώ',
+            '3': 'Συμφωνώ',
+            '4': 'Συμφωνώ Απόλυτα',
+        }
+
+        # Create the chart
         chart = (
             alt.Chart(chart_data44)
-            .mark_bar()
+            .mark_bar(size=40)  # Adjust the size of the bars
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
                 y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
+                color=alt.Color("variable:N", title="", legend=alt.Legend(title=None, labelLimit=200), scale=alt.Scale(scheme='category20')),
+                order=alt.Order("variable:N", sort="ascending"),
+                text=alt.Text("value:Q", format=".2f"),  # Add labels to the bars
             )
         )
+
+        # Configure the legend
+        chart = chart.configure_legend(
+            title=None,  # Remove legend title
+            labelLimit=200,  # Set a higher label limit
+            labelFontSize=12  # Adjust the legend label font size
+        )
+
+        # Set custom legend labels
+        chart = chart.transform_calculate(
+            legend_label="lookup(datum.variable, {'0': 'Διαφωνώ Απόλυτα','1': 'Διαφωνώ','2': 'Ούτε Συμφωνώ ούτε Διαφωνώ','3': 'Συμφωνώ','4': 'Συμφωνώ Απόλυτα',})"
+        )
+
+        # Display the chart in Streamlit
         st.altair_chart(chart, use_container_width=True)
 
 
