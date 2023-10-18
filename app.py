@@ -112,7 +112,7 @@ def main():
     # st.write(a)
     xdata=np.asarray(reshaped_data)
     st.write(xdata)
-    ydata=reshaped_data["question"]
+    ydata=reshaped_data[0]
     st.write(ydata)
 
 
