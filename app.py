@@ -110,9 +110,9 @@ def main():
     st.write(reshaped_data)
     # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     # st.write(a)
-    xdata=np.asarray(reshaped_data)
+    xdata=np.asanyarray(reshaped_data)
     st.write(xdata)
-    ydata=reshaped_data.index
+    ydata=np.asanyarray(reshaped_data.index)
     st.write(ydata)
 
 
