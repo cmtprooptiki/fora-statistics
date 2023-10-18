@@ -100,7 +100,7 @@ def main():
         reshaped_data = pd.concat([reshaped_data, pivoted])
 
     # Reset the index of the final reshaped DataFrame
-    #reshaped_data.reset_index(drop=True, inplace=True)
+    reshaped_data.reset_index(drop=True, inplace=True)
     # Set the 'question' column as the index
     #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
