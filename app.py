@@ -235,7 +235,7 @@ def main():
     #percentage_data[cols] = percentage_data[cols].round(2)
 
     # Create the stacked bar chart using Plotly Express
-    fig = px.bar(df, x=cols, y="question", orientation='h', labels={'1': 'Strongly Agree', '2': 'Agree', '3': 'Neutral', '4': 'Disagree', '5': 'Strongly Disagree'},
+    fig = px.bar(percentage_data, x=cols, y="question", orientation='h', labels={'1': 'Strongly Agree', '2': 'Agree', '3': 'Neutral', '4': 'Disagree', '5': 'Strongly Disagree'},
                 title="Survey Responses", text=cols, height=800)
 
     # Customize the colors
