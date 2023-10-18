@@ -102,7 +102,7 @@ def main():
     # Reset the index of the final reshaped DataFrame
     reshaped_data.reset_index(drop=True, inplace=True)
     # Set the 'question' column as the index
-    #reshaped_data.set_index('question', inplace=True)
+    reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
@@ -221,9 +221,10 @@ def main():
 ########################################################################################################################################################
 
     #Creation of percentage df(every cell is the %of total of the row)
-    row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
-    percentage_data= round(reshaped_data.iloc[:,1:6].divide(row_sums,axis=0) *100,1)
+    row_sums= reshaped_data.sum(axis=1)
+    percentage_data= round(reshaped_data.iloc.divide(row_sums,axis=0) *100,1)
     percentage_data["question"] = percentage_data["question"].rename({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
+    percentage_data.reset_index(drop=True, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
     # Sort the DataFrame by question (optional)
