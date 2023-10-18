@@ -111,7 +111,7 @@ def main():
     # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     # st.write(a)
     xdata=np.asarray(reshaped_data)
-    ydata=np.asarray(reshaped_data["question)"])
+    ydata=np.asarray(reshaped_data[0])
     st.write(xdata)
     st.write(ydata)
 
