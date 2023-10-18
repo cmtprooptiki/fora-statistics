@@ -148,7 +148,7 @@ def main():
             showline=False,
             showticklabels=False,
             zeroline=False,
-            domain=[0.15, 1]
+            domain=[1, 1]
         ),
         yaxis=dict(
             showgrid=False,
