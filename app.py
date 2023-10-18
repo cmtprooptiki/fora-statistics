@@ -227,29 +227,7 @@ def main():
     percentage_data.reset_index(drop=False, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
-    # Sort the DataFrame by question (optional)
-    #percentage_data = percentage_data.sort_values(by=['question'], ascending=True)
-
-    # Calculate percentages
-    cols = percentage_data.iloc[:,1:5]
-    #percentage_data[cols] = percentage_data[cols].div(percentage_data[cols].sum(axis=1), axis=0) * 100
-    #percentage_data[cols] = percentage_data[cols].round(2)
-
-    # Create the stacked bar chart using Plotly Express
-    fig = px.bar(percentage_data, x=cols, y="question", orientation='h', labels={"5": 'Strongly Agree', "4": 'Agree', "3": 'Neutral', "2": 'Disagree', "1": 'Strongly Disagree'},
-                title="Survey Responses", text=cols, height=800)
-
-    # Customize the colors
-    colors = ['#c71d1d', '#e28e8e', '#e7e7e7', '#879caf', '#1b617b']
-    fig.update_traces(marker=dict(color=colors), texttemplate='%{text}%', textposition='inside')
-
-    # Adjust the layout
-    fig.update_layout(barmode='stack', xaxis_title="Percentage of Responses", yaxis_title="Questions")
-    fig.update_xaxes(range=[0, 100], showgrid=True, gridcolor='black')
-    fig.update_yaxes(tickfont=dict(size=12))
-
-    # Show the plot
-    st.plotly_chart(fig)
+    
 
 
 
