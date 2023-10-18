@@ -225,7 +225,31 @@ def main():
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     percentage_data = percentage_data.rename({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
-    
+
+    # Sort the DataFrame by question (optional)
+    percentage_data = percentage_data.sort_values(by=['question'], ascending=True)
+
+    # Calculate percentages
+    cols = ['1', '2', '3, '4', '5']
+    #percentage_data[cols] = percentage_data[cols].div(percentage_data[cols].sum(axis=1), axis=0) * 100
+    #percentage_data[cols] = percentage_data[cols].round(2)
+
+    # Create the stacked bar chart using Plotly Express
+    fig = px.bar(df, x=cols, y="question", orientation='h', labels={'1': 'Strongly Agree', '2': 'Agree', '3': 'Neutral', '4': 'Disagree', '5': 'Strongly Disagree'},
+                title="Survey Responses", text=cols, height=800)
+
+    # Customize the colors
+    colors = ['#c71d1d', '#e28e8e', '#e7e7e7', '#879caf', '#1b617b']
+    fig.update_traces(marker=dict(color=colors), texttemplate='%{text}%', textposition='inside')
+
+    # Adjust the layout
+    fig.update_layout(barmode='stack', xaxis_title="Percentage of Responses", yaxis_title="Questions")
+    fig.update_xaxes(range=[0, 100], showgrid=True, gridcolor='black')
+    fig.update_yaxes(tickfont=dict(size=12))
+
+    # Show the plot
+    st.plotly_chart(fig)
+
 
 
 
