@@ -81,77 +81,69 @@ def main():
     dfdata["idiotita"] = dfdata["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
     st.write("All Data from Query",dfdata)
 
-    #Create a "Likert Df":
-    # Create a dictionary to map Likert scale values to columns (1, 2, 3, 4, 5)
-    likert_mapping = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
-    # Initialize a new DataFrame to store the reshaped data
-    reshaped_data = pd.DataFrame()
-    # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
-    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
-        # Melt the DataFrame to stack the Likert scale values into rows
-        melted = dfdata.melt(id_vars='idiotita', value_vars=[question], var_name='question')
+    # #Create a "Likert Df":
+    # # Create a dictionary to map Likert scale values to columns (1, 2, 3, 4, 5)
+    # likert_mapping = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
+    # # Initialize a new DataFrame to store the reshaped data
+    # reshaped_data = pd.DataFrame()
+    # # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
+    # for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
+    #     # Melt the DataFrame to stack the Likert scale values into rows
+    #     melted = dfdata.melt(id_vars='idiotita', value_vars=[question], var_name='question')
 
-        # Pivot the melted DataFrame to count the occurrences of each Likert scale value
-        pivoted = melted.pivot_table(index='question', columns='value', values='idiotita', aggfunc='count', fill_value=0)
+    #     # Pivot the melted DataFrame to count the occurrences of each Likert scale value
+    #     pivoted = melted.pivot_table(index='question', columns='value', values='idiotita', aggfunc='count', fill_value=0)
 
-        # Reset the index and rename the columns
-        pivoted.reset_index(inplace=True)
-        pivoted.rename(columns=likert_mapping, inplace=True)
+    #     # Reset the index and rename the columns
+    #     pivoted.reset_index(inplace=True)
+    #     pivoted.rename(columns=likert_mapping, inplace=True)
 
-        # Add the reshaped data to the final DataFrame
-        reshaped_data = pd.concat([reshaped_data, pivoted])
+    #     # Add the reshaped data to the final DataFrame
+    #     reshaped_data = pd.concat([reshaped_data, pivoted])
 
-    # Reset the index of the final reshaped DataFrame
-    reshaped_data.reset_index(drop=True, inplace=True)
-    # Set the 'question' column as the index
-    #reshaped_data.set_index('question', inplace=True)
-    # Print the reshaped DataFrame
-    reshaped_data=reshaped_data.rename(columns={"": "NAN"})
-    reshaped_data=reshaped_data.drop(columns=["NAN"])
-    reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
-    reshaped_data=reshaped_data.fillna(0)
-    reshaped_data.set_index('question', inplace=True)
-    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
+    # # Reset the index of the final reshaped DataFrame
+    # reshaped_data.reset_index(drop=True, inplace=True)
+    # # Set the 'question' column as the index
+    # #reshaped_data.set_index('question', inplace=True)
+    # # Print the reshaped DataFrame
+    # reshaped_data=reshaped_data.rename(columns={"": "NAN"})
+    # reshaped_data=reshaped_data.drop(columns=["NAN"])
+    # reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
+    # reshaped_data=reshaped_data.fillna(0)
+    # reshaped_data.set_index('question', inplace=True)
+    # # #Creation of percentage df(every cell is the %of total of the row)
+    # # Set the 'question' column as the index
+    # reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
+    # row_sums= reshaped_data.sum(axis=1)
+    # percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
+    # st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
+    # st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     
-
-########################################################################################################################################################
-############################################################################arxi 2o test diagramma######################################################
-########################################################################################################################################################
-
-    # #Creation of percentage df(every cell is the %of total of the row)
-    # Set the 'question' column as the index
-    reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
-    row_sums= reshaped_data.sum(axis=1)
-    percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
-    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
-    st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
-    
-
     ########################################################################################################################################################
     ############################################################################telos 2o test diagramma#####################################################
     #######################################################################################################################################################
-    chart_data = pd.DataFrame(
-        np.asanyarray(reshaped_data),
-        index=["l1","l2","l3","l4","l5","l6"],
-    )
-    st.write(chart_data)
-    st.bar_chart(chart_data)
-    chart_data2 = pd.melt(chart_data.reset_index(), id_vars=["index"])
-    st.write(chart_data2)
+    # chart_data = pd.DataFrame(
+    #     np.asanyarray(reshaped_data),
+    #     index=["l1","l2","l3","l4","l5","l6"],
+    # )
+    # st.write(chart_data)
+    # st.bar_chart(chart_data)
+    # chart_data2 = pd.melt(chart_data.reset_index(), id_vars=["index"])
+    # st.write(chart_data2)
 
-    # Horizontal stacked bar chart
-    chart = (
-        alt.Chart(chart_data2)
-        .mark_bar()
-        .encode(
-            x=alt.X("value", type="quantitative", title=""),
-            y=alt.Y("index", type="nominal", title=""),
-            color=alt.Color("variable", type="nominal", title=""),
-            order=alt.Order("variable", sort="ascending"),
-        )
-    )
-    st.altair_chart(chart, use_container_width=True)
-    ###################################################################################################################
+    # # Horizontal stacked bar chart
+    # chart = (
+    #     alt.Chart(chart_data2)
+    #     .mark_bar()
+    #     .encode(
+    #         x=alt.X("value", type="quantitative", title=""),
+    #         y=alt.Y("index", type="nominal", title=""),
+    #         color=alt.Color("variable", type="nominal", title=""),
+    #         order=alt.Order("variable", sort="ascending"),
+    #     )
+    # )
+    # st.altair_chart(chart, use_container_width=True)
+    # ###################################################################################################################
     ###############################################START VAGGELIS######################################################
     ###################################################################################################################
 
@@ -188,6 +180,45 @@ def main():
         selected_idiotita = "Όλες οι ιδιότητες"
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
+
+    #Create a "Likert Df":
+    # Create a dictionary to map Likert scale values to columns (1, 2, 3, 4, 5)
+    likert_mapping = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
+    # Initialize a new DataFrame to store the reshaped data
+    reshaped_data = pd.DataFrame()
+    # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
+    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
+        # Melt the DataFrame to stack the Likert scale values into rows
+        melted = filtered_data.melt(id_vars='idiotita', value_vars=[question], var_name='question')
+
+        # Pivot the melted DataFrame to count the occurrences of each Likert scale value
+        pivoted = melted.pivot_table(index='question', columns='value', values='idiotita', aggfunc='count', fill_value=0)
+
+        # Reset the index and rename the columns
+        pivoted.reset_index(inplace=True)
+        pivoted.rename(columns=likert_mapping, inplace=True)
+
+        # Add the reshaped data to the final DataFrame
+        reshaped_data = pd.concat([reshaped_data, pivoted])
+
+    # Reset the index of the final reshaped DataFrame
+    reshaped_data.reset_index(drop=True, inplace=True)
+    # Set the 'question' column as the index
+    #reshaped_data.set_index('question', inplace=True)
+    # Print the reshaped DataFrame
+    reshaped_data=reshaped_data.rename(columns={"": "NAN"})
+    reshaped_data=reshaped_data.drop(columns=["NAN"])
+    reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
+    reshaped_data=reshaped_data.fillna(0)
+    reshaped_data.set_index('question', inplace=True)
+    # #Creation of percentage df(every cell is the %of total of the row)
+    # Set the 'question' column as the index
+    reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
+    row_sums= reshaped_data.sum(axis=1)
+    percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
+    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
+    st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
+    
 
     # Create two columns
     col4, col5 = st.columns(2)
