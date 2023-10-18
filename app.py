@@ -255,12 +255,12 @@ def main():
         st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
         chart_data2 = pd.DataFrame(
             tbl[3:4,:],
-            index=["l3"]#,"l2","l3","l4","l5","l6"],
+            index=["dfdfdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"]#,"l2","l3","l4","l5","l6"],
         )
-        st.write(chart_data2)
+        #st.write(chart_data2)
         st.bar_chart(chart_data2)
         chart_data22 = pd.melt(chart_data2.reset_index(), id_vars=["index"])
-        st.write(chart_data22)
+        #st.write(chart_data22)
 
         # Horizontal stacked bar chart
         chart = (
