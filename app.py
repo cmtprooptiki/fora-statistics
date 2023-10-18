@@ -231,7 +231,7 @@ def main():
     #percentage_data = percentage_data.sort_values(by=['question'], ascending=True)
 
     # Calculate percentages
-    cols = percentage_data[["1","2","3","4","5"]]
+    cols = percentage_data.iloc[:,1:5]
     #percentage_data[cols] = percentage_data[cols].div(percentage_data[cols].sum(axis=1), axis=0) * 100
     #percentage_data[cols] = percentage_data[cols].round(2)
 
