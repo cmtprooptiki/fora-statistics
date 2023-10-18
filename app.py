@@ -129,54 +129,54 @@ def main():
     percentage_data.reset_index(drop=False, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
-    # # Populate the variables from the CSV
-    # questions = d2.question
-    # strongdisagree = d2.iloc[:, 1]
-    # disagree = d2.iloc[:, 2]
-    # neutral = d2.iloc[:, 3]
-    # agree = d2.iloc[:, 4]
-    # strongagree = d2.iloc[:, 5]
+    # Populate the variables from the CSV
+    questions = reshaped_data.question
+    strongdisagree = reshaped_data.iloc[:, 1]
+    disagree = reshaped_data.iloc[:, 2]
+    neutral = reshaped_data.iloc[:, 3]
+    agree = reshaped_data.iloc[:, 4]
+    strongagree = reshaped_data.iloc[:, 5]
 
-    # # Handle NaN values by replacing them with zeros
-    # strongdisagree = strongdisagree.fillna(0)
-    # disagree = disagree.fillna(0)
-    # neutral = neutral.fillna(0)
-    # agree = agree.fillna(0)
-    # strongagree = strongagree.fillna(0)
+    # Handle NaN values by replacing them with zeros
+    strongdisagree = strongdisagree.fillna(0)
+    disagree = disagree.fillna(0)
+    neutral = neutral.fillna(0)
+    agree = agree.fillna(0)
+    strongagree = strongagree.fillna(0)
 
-    # ind = [x for x, _ in enumerate(questions)]
+    ind = [x for x, _ in enumerate(questions)]
 
-    # # Calculate the percentages for the 100% stacked bars
-    # total = strongdisagree + disagree + neutral + agree + strongagree
-    # proportion_strongdisagree = (strongdisagree / total) * 100
-    # proportion_disagree = (disagree / total) * 100
-    # proportion_neutral = (neutral / total) * 100
-    # proportion_agree = (agree / total) * 100
-    # proportion_strongagree = (strongagree / total) * 100
+    # Calculate the percentages for the 100% stacked bars
+    total = strongdisagree + disagree + neutral + agree + strongagree
+    proportion_strongdisagree = (strongdisagree / total) * 100
+    proportion_disagree = (disagree / total) * 100
+    proportion_neutral = (neutral / total) * 100
+    proportion_agree = (agree / total) * 100
+    proportion_strongagree = (strongagree / total) * 100
 
-    # # Create the chart
-    # plt.subplots_adjust(right=4)
+    # Create the chart
+    plt.subplots_adjust(right=4)
 
-    # # Plot the bars
-    # plt.barh(ind, proportion_strongagree, label='SA', color='#1b617b', left=proportion_strongdisagree + proportion_disagree + proportion_neutral + proportion_agree)
-    # plt.barh(ind, proportion_agree, label='A', color='#879caf', left=proportion_strongdisagree + proportion_disagree + proportion_neutral)
-    # plt.barh(ind, proportion_neutral, label='N', color='#e7e7e7', left=proportion_strongdisagree + proportion_disagree)
-    # plt.barh(ind, proportion_disagree, label='D', color='#e28e8e', left=proportion_strongdisagree)
-    # plt.barh(ind, proportion_strongdisagree, label='SD', color='#c71d1d') 
+    # Plot the bars
+    plt.barh(ind, proportion_strongagree, label='SA', color='#1b617b', left=proportion_strongdisagree + proportion_disagree + proportion_neutral + proportion_agree)
+    plt.barh(ind, proportion_agree, label='A', color='#879caf', left=proportion_strongdisagree + proportion_disagree + proportion_neutral)
+    plt.barh(ind, proportion_neutral, label='N', color='#e7e7e7', left=proportion_strongdisagree + proportion_disagree)
+    plt.barh(ind, proportion_disagree, label='D', color='#e28e8e', left=proportion_strongdisagree)
+    plt.barh(ind, proportion_strongdisagree, label='SD', color='#c71d1d') 
 
-    # # Set the axes
-    # plt.yticks(ind, questions)
-    # plt.xlim(0, 100)
+    # Set the axes
+    plt.yticks(ind, questions)
+    plt.xlim(0, 100)
 
-    # # Fine-tune the labels
-    # ax = plt.gca()
-    # plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
-    # ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
-    # ax.set_facecolor('white')
-    # plt.tick_params(labelsize=24)
+    # Fine-tune the labels
+    ax = plt.gca()
+    plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
+    ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
+    ax.set_facecolor('white')
+    plt.tick_params(labelsize=24)
 
-    # # Display the chart in Streamlit
-    # st.pyplot(plt)
+    # Display the chart in Streamlit
+    st.pyplot(plt)
 
 
 
