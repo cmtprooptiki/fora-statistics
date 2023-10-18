@@ -285,10 +285,10 @@ def main():
             tbl[2:3,:],
             index=["l4"]#,"l2","l3","l4","l5","l6"],
         )
-        st.write(chart_data3)
-        st.bar_chart(chart_data3)
+        #st.write(chart_data3)
+        #st.bar_chart(chart_data3)
         chart_data33 = pd.melt(chart_data3.reset_index(), id_vars=["index"])
-        st.write(chart_data33)
+        #st.write(chart_data33)
 
         # Horizontal stacked bar chart
         chart = (
@@ -306,6 +306,27 @@ def main():
     # Inside the forth column
     with col7:
         st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+        chart_data4 = pd.DataFrame(
+            tbl[0:2,:],
+            index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
+        )
+        st.write(chart_data4)
+        st.bar_chart(chart_data4)
+        chart_data44 = pd.melt(chart_data4.reset_index(), id_vars=["index"])
+        st.write(chart_data44)
+
+        # Horizontal stacked bar chart
+        chart = (
+            alt.Chart(chart_data33)
+            .mark_bar()
+            .encode(
+                x=alt.X("value", type="quantitative", title=""),
+                y=alt.Y("index", type="nominal", title=""),
+                color=alt.Color("variable", type="nominal", title=""),
+                order=alt.Order("variable", sort="ascending"),
+            )
+        )
+        st.altair_chart(chart, use_container_width=True)
 
 
 
