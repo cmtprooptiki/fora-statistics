@@ -190,7 +190,7 @@ def main():
 
     # Horizontal stacked bar chart
     chart = (
-        alt.Chart(chart_data)
+        alt.Chart(chart_data2)
         .mark_bar()
         .encode(
             x=alt.X("value", type="quantitative", title=""),
