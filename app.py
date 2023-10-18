@@ -226,6 +226,27 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+        chart_data1 = pd.DataFrame(
+            np.asanyarray(percentage_data.iloc[4:5,:]),
+            index=["l1","l2"]#,"l3","l4","l5","l6"],
+        )
+        st.write(chart_data1)
+        st.bar_chart(chart_data1)
+        chart_data11 = pd.melt(chart_data1.reset_index(), id_vars=["index"])
+        st.write(chart_data11)
+
+        # Horizontal stacked bar chart
+        chart = (
+            alt.Chart(chart_data11)
+            .mark_bar()
+            .encode(
+                x=alt.X("value", type="quantitative", title=""),
+                y=alt.Y("index", type="nominal", title=""),
+                color=alt.Color("variable", type="nominal", title=""),
+                order=alt.Order("variable", sort="ascending"),
+            )
+        )
+        st.altair_chart(chart, use_container_width=True)
 
     # Inside the second column
     with col5:
