@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import timedelta
 import numpy as np
+import matplotlib.pyplot as plt
 
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
@@ -102,7 +103,7 @@ def main():
     # Reset the index of the final reshaped DataFrame
     reshaped_data.reset_index(drop=True, inplace=True)
     # Set the 'question' column as the index
-    reshaped_data.set_index('question', inplace=True)
+    #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
@@ -220,33 +221,63 @@ def main():
 ############################################################################arxi 2o test diagramma######################################################
 ########################################################################################################################################################
 
-    #Creation of percentage df(every cell is the %of total of the row)
-    row_sums= reshaped_data.sum(axis=1)
-    percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
-    percentage_data = percentage_data.rename({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
-    percentage_data.reset_index(drop=False, inplace=True)
-    st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
+    # #Creation of percentage df(every cell is the %of total of the row)
+    # row_sums= reshaped_data.sum(axis=1)
+    # percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
+    # percentage_data = percentage_data.rename({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
+    # percentage_data.reset_index(drop=False, inplace=True)
+    # st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
-    # Populate the variables from the percentage_data DataFrame
-    questions = percentage_data.question
-    strongdisagree = percentage_data["1"]
-    disagree = percentage_data["2"]
-    neutral = percentage_data["3"]
-    agree = percentage_data["4"]
-    strongagree = percentage_data["5"]
+    # # Populate the variables from the CSV
+    # questions = d2.question
+    # strongdisagree = d2.iloc[:, 1]
+    # disagree = d2.iloc[:, 2]
+    # neutral = d2.iloc[:, 3]
+    # agree = d2.iloc[:, 4]
+    # strongagree = d2.iloc[:, 5]
 
-    ind = [x for x, _ in enumerate(questions)]
+    # # Handle NaN values by replacing them with zeros
+    # strongdisagree = strongdisagree.fillna(0)
+    # disagree = disagree.fillna(0)
+    # neutral = neutral.fillna(0)
+    # agree = agree.fillna(0)
+    # strongagree = strongagree.fillna(0)
 
-    # # Create a Streamlit app and display the bar chart
-    # st.set_option('deprecation.showPyplotGlobalUse', False)
+    # ind = [x for x, _ in enumerate(questions)]
+
+    # # Calculate the percentages for the 100% stacked bars
+    # total = strongdisagree + disagree + neutral + agree + strongagree
+    # proportion_strongdisagree = (strongdisagree / total) * 100
+    # proportion_disagree = (disagree / total) * 100
+    # proportion_neutral = (neutral / total) * 100
+    # proportion_agree = (agree / total) * 100
+    # proportion_strongagree = (strongagree / total) * 100
+
+    # # Create the chart
+    # plt.subplots_adjust(right=4)
+
+    # # Plot the bars
+    # plt.barh(ind, proportion_strongagree, label='SA', color='#1b617b', left=proportion_strongdisagree + proportion_disagree + proportion_neutral + proportion_agree)
+    # plt.barh(ind, proportion_agree, label='A', color='#879caf', left=proportion_strongdisagree + proportion_disagree + proportion_neutral)
+    # plt.barh(ind, proportion_neutral, label='N', color='#e7e7e7', left=proportion_strongdisagree + proportion_disagree)
+    # plt.barh(ind, proportion_disagree, label='D', color='#e28e8e', left=proportion_strongdisagree)
+    # plt.barh(ind, proportion_strongdisagree, label='SD', color='#c71d1d') 
+
+    # # Set the axes
+    # plt.yticks(ind, questions)
+    # plt.xlim(0, 100)
+
+    # # Fine-tune the labels
+    # ax = plt.gca()
+    # plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
+    # ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
+    # ax.set_facecolor('white')
+    # plt.tick_params(labelsize=24)
+
+    # # Display the chart in Streamlit
     # st.pyplot(plt)
 
-    st.bar_chart(strongdisagree, label='SD', color='#c71d1d')
-    st.bar_chart(disagree, label='D', color='#e28e8e')
-    st.bar_chart(neutral, label='N', color='#e7e7e7')
-    st.bar_chart(agree, label='A', color='#879caf')
-    st.bar_chart(strongagree, label='SA', color='#1b617b')
-    st.pyplot(plt)
+
 
 
 
