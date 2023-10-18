@@ -253,7 +253,27 @@ def main():
     # Inside the second column
     with col5:
         st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
+        chart_data2 = pd.DataFrame(
+            tbl[3:4,:],
+            index=["l3"]#,"l2","l3","l4","l5","l6"],
+        )
+        st.write(chart_data1)
+        st.bar_chart(chart_data1)
+        chart_data22 = pd.melt(chart_data2.reset_index(), id_vars=["index"])
+        st.write(chart_data11)
 
+        # Horizontal stacked bar chart
+        chart = (
+            alt.Chart(chart_data22)
+            .mark_bar()
+            .encode(
+                x=alt.X("value", type="quantitative", title=""),
+                y=alt.Y("index", type="nominal", title=""),
+                color=alt.Color("variable", type="nominal", title=""),
+                order=alt.Order("variable", sort="ascending"),
+            )
+        )
+        st.altair_chart(chart, use_container_width=True)
     # Create of another two columns
     col6, col7 = st.columns(2)
 
