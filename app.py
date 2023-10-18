@@ -344,10 +344,11 @@ def main():
             labelFontSize=12  # Adjust the legend label font size
         )
 
-        # Set custom legend labels
+        # Set custom legend labels using transform_calculate
         chart = chart.transform_calculate(
-            legend_label="lookup(datum.variable, {'0': 'Διαφωνώ Απόλυτα','1': 'Διαφωνώ','2': 'Ούτε Συμφωνώ ούτε Διαφωνώ','3': 'Συμφωνώ','4': 'Συμφωνώ Απόλυτα',})"
+            legend_label='datum.variable == "0" ? "Strongly Disagree" : datum.variable == "1" ? "Disagree" : datum.variable == "2" ? "Neutral" : datum.variable == "3" ? "Agree" : "4"'
         )
+
 
         # Display the chart in Streamlit
         st.altair_chart(chart, use_container_width=True)
