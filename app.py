@@ -110,6 +110,7 @@ def main():
     reshaped_data=reshaped_data.drop(columns=["NAN"])
     reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
     reshaped_data=reshaped_data.fillna(0)
+    reshaped_data.set_index('question', inplace=True)
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     
 
@@ -119,62 +120,13 @@ def main():
 
     # #Creation of percentage df(every cell is the %of total of the row)
     # Set the 'question' column as the index
-    reshaped_data.set_index('question', inplace=True)
     reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
     row_sums= reshaped_data.sum(axis=1)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     percentage_data.reset_index(drop=False, inplace=True)
+    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
-    st.write(reshaped_data)
-    #st.write(reshaped_data)
-    # Populate the variables from the CSV
-    questions = reshaped_data.index
-    strongdisagree = reshaped_data.iloc[:,0]
-    disagree = reshaped_data.iloc[:,1]
-    neutral = reshaped_data.iloc[:,2]
-    agree = reshaped_data.iloc[:,3]
-    strongagree = reshaped_data.iloc[:,4]
-
-    # # Handle NaN values by replacing them with zeros
-    # strongdisagree = strongdisagree.fillna(0)
-    # disagree = disagree.fillna(0)
-    # neutral = neutral.fillna(0)
-    # agree = agree.fillna(0)
-    # strongagree = strongagree.fillna(0)
-
-    ind = [x for x, _ in enumerate(questions)]
-
-    # Calculate the percentages for the 100% stacked bars
-    total = strongdisagree + disagree + neutral + agree + strongagree
-    proportion_strongdisagree = (strongdisagree / total) * 100
-    proportion_disagree = (disagree / total) * 100
-    proportion_neutral = (neutral / total) * 100
-    proportion_agree = (agree / total) * 100
-    proportion_strongagree = (strongagree / total) * 100
-
-    # Create the chart
-    plt.subplots_adjust(right=4)
-
-    # Plot the bars
-    plt.barh(ind, proportion_strongagree, label='SA', color='#1b617b', left=proportion_strongdisagree + proportion_disagree + proportion_neutral + proportion_agree)
-    plt.barh(ind, proportion_agree, label='A', color='#879caf', left=proportion_strongdisagree + proportion_disagree + proportion_neutral)
-    plt.barh(ind, proportion_neutral, label='N', color='#e7e7e7', left=proportion_strongdisagree + proportion_disagree)
-    plt.barh(ind, proportion_disagree, label='D', color='#e28e8e', left=proportion_strongdisagree)
-    plt.barh(ind, proportion_strongdisagree, label='SD', color='#c71d1d') 
-
-    # Set the axes
-    plt.yticks(ind, questions)
-    plt.xlim(0, 100)
-
-    # Fine-tune the labels
-    ax = plt.gca()
-    plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
-    ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
-    ax.set_facecolor('white')
-    plt.tick_params(labelsize=24)
-
-    # Display the chart in Streamlit
-    st.pyplot(plt)
+    
 
     ########################################################################################################################################################
     ############################################################################telos 2o test diagramma#####################################################
