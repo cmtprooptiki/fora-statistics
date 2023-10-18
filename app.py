@@ -230,7 +230,7 @@ def main():
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         chart_data1 = pd.DataFrame(
             tbl[4:6,:],
-            index=["l2","l1"]#,"l3","l4","l5","l6"],
+            index=["l1","l2"]#,"l3","l4","l5","l6"],
         )
         st.write(chart_data1)
         st.bar_chart(chart_data1)
