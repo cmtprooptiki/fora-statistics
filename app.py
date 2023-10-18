@@ -227,7 +227,49 @@ def main():
     percentage_data.reset_index(drop=False, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
-    
+    #populate the variables from the csv
+    questions = percentage_data.question
+    strongdisagree = percentage_data.1
+    disagree = percentage_data.2
+    neutral = percentage_data.3
+    agree = percentage_data.4
+    strongagree = percentage_data.5
+
+    ind = [x for x, _ in enumerate(questions)]
+
+    #calculate the percentages for the 100% stacked bars
+    # total = strongdisagree+disagree+neutral+agree+strongagree
+    # proportion_strongdisagree = np.true_divide(strongdisagree, total) * 100
+    # proportion_disagree = np.true_divide(disagree, total) * 100
+    # proportion_neutral = np.true_divide(neutral, total) * 100
+    # proportion_agree = np.true_divide(agree, total) * 100
+    # proportion_strongagree = np.true_divide(strongagree, total) * 100
+
+    plt.subplots_adjust(right=4)
+
+    #plot the bars
+    plt.barh(ind, strongagree, label='SA', color='#1b617b', left=strongdisagree+disagree+neutral+agree)
+    plt.barh(ind, agree, label='A', color='#879caf', left=strongdisagree+disagree+neutral)
+    plt.barh(ind, neutral, label='N', color='#e7e7e7', left=strongdisagree+disagree)
+    plt.barh(ind, disagree, label='D', color='#e28e8e', left=strongdisagree)
+    plt.barh(ind, strongdisagree, label='SD', color='#c71d1d') 
+
+    #set the axes
+    plt.yticks(ind, questions)
+    #plt.ylabel("Questions")
+    #plt.xlabel("Responses")
+    #plt.title("Survey Responses")
+    plt.xlim=1.0
+
+    #fine tune the labels
+    ax=plt.gca()
+    plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
+    ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
+    ax.set_facecolor('white')
+    plt.tick_params(labelsize=24)
+
+    plt.show()
+
 
 
 
