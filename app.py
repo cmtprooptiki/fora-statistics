@@ -128,9 +128,9 @@ def main():
     percentage_data= round(prep.divide(row_sums,axis=0) *100,1)
     percentage_data.reset_index(drop=False, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
-    st.write(reshaped_data)
+    #st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = reshaped_data.index
+    questions = reshaped_data.iloc[0:2].index
     strongdisagree = reshaped_data.iloc[0:2, 0]
     disagree = reshaped_data.iloc[0:2, 1]
     neutral = reshaped_data.iloc[0:2, 2]
