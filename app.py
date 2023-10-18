@@ -238,28 +238,16 @@ def main():
 
     ind = [x for x, _ in enumerate(questions)]
 
-    # Plot the bars
-    plt.subplots_adjust(right=4)
+    # Create a Streamlit app and display the bar chart
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+    st.pyplot(plt)
 
-    # Plot the bars
-    plt.barh(ind, strongagree, label='SA', color='#1b617b', left=strongdisagree+disagree+neutral+agree)
-    plt.barh(ind, agree, label='A', color='#879caf', left=strongdisagree+disagree+neutral)
-    plt.barh(ind, neutral, label='N', color='#e7e7e7', left=strongdisagree+disagree)
-    plt.barh(ind, disagree, label='D', color='#e28e8e', left=strongdisagree)
-    plt.barh(ind, strongdisagree, label='SD', color='#c71d1d')
-
-    # Set the axes
-    plt.yticks(ind, questions)
-    plt.xlim(0, 100)  # Set the x-axis limits correctly
-
-    # Fine-tune the labels
-    ax = plt.gca()
-    plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
-    ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
-    ax.set_facecolor('white')
-    plt.tick_params(labelsize=24)
-
-    plt.show()
+    st.bar_chart(strongdisagree, label='SD', color='#c71d1d')
+    st.bar_chart(disagree, label='D', color='#e28e8e')
+    st.bar_chart(neutral, label='N', color='#e7e7e7')
+    st.bar_chart(agree, label='A', color='#879caf')
+    st.bar_chart(strongagree, label='SA', color='#1b617b')
+    st.pyplot(plt)
 
 
 
