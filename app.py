@@ -106,7 +106,7 @@ def main():
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
-    st.write(reshaped_data)
+    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     
     #gia 1o test diagramma
     # xdata=np.asanyarray(reshaped_data)
@@ -223,9 +223,8 @@ def main():
 
     #Creation of percentage df(every cell is the %of total of the row)
     row_sums= reshaped_data.sum(axis=1)
-    st.write(row_sums)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
-    st.write(percentage_data)
+    st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
 
 
 
