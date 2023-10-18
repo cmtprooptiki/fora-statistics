@@ -198,12 +198,6 @@ def main():
 ############################################################################telos 2o test diagramma#####################################################
 ########################################################################################################################################################
 
-    import pandas as pd
-    import plotly.graph_objects as go
-
-    # Assuming you have your data loaded into a DataFrame named 'reshaped_data'
-    # You can read your CSV using: reshaped_data = pd.read_csv('your_data.csv')
-
     questions = reshaped_data.index
     strongdisagree = reshaped_data.iloc[:, 0]
     disagree = reshaped_data.iloc[:, 1]
