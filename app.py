@@ -234,6 +234,7 @@ def main():
     neutral = percentage_data["3"]
     agree = percentage_data["4"]
     strongagree = percentage_data["5"]
+    st.write(strongagree)
 
     # ind = [x for x, _ in enumerate(questions)]
 
