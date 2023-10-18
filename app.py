@@ -324,9 +324,6 @@ def main():
             '4': 'Συμφωνώ Απόλυτα',
         }
 
-        # Add a new column to your DataFrame with custom legend labels
-        chart_data44['legend_label'] = chart_data44['variable'].map(legend_labels)
-
         # Create the chart
         chart = (
             alt.Chart(chart_data44)
@@ -345,6 +342,11 @@ def main():
             title=None,  # Remove legend title
             labelLimit=200,  # Set a higher label limit
             labelFontSize=12  # Adjust the legend label font size
+        )
+
+        # Set custom legend labels using transform_calculate
+        chart = chart.transform_calculate(
+            legend_label='datum.variable == "0" ? "Strongly Disagree" : datum.variable == "1" ? "Disagree" : datum.variable == "2" ? "Neutral" : datum.variable == "3" ? "Agree" : "Strongly Agree"'
         )
 
         # Display the chart in Streamlit
