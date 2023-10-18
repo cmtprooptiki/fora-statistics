@@ -131,11 +131,11 @@ def main():
     st.write(reshaped_data)
     # Populate the variables from the CSV
     questions = reshaped_data.index
-    strongdisagree = reshaped_data.iloc[:, 0]
-    disagree = reshaped_data.iloc[:, 1]
-    neutral = reshaped_data.iloc[:, 2]
-    agree = reshaped_data.iloc[:, 3]
-    strongagree = reshaped_data.iloc[:, 4]
+    strongdisagree = reshaped_data.iloc[0:2, 0]
+    disagree = reshaped_data.iloc[0:2, 1]
+    neutral = reshaped_data.iloc[0:2, 2]
+    agree = reshaped_data.iloc[0:2, 3]
+    strongagree = reshaped_data.iloc[0:2, 4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
