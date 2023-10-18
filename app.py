@@ -135,7 +135,7 @@ def main():
     disagree = reshaped_data.iloc[:, 1]
     neutral = reshaped_data.iloc[:, 2]
     agree = reshaped_data.iloc[:, 3]
-    strongagree = reshaped_data.iloc[, 4]
+    strongagree = reshaped_data.iloc[:, 4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
