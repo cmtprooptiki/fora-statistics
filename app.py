@@ -344,10 +344,10 @@ def main():
             labelFontSize=12  # Adjust the legend label font size
         )
 
-        # Set custom legend labels using transform_calculate
-        chart = chart.transform_calculate(
-            legend_label='datum.variable == "0" ? "Strongly Disagree" : datum.variable == "1" ? "Disagree" : datum.variable == "2" ? "Neutral" : datum.variable == "3" ? "Agree" : "4"'
-        )
+        # # Set custom legend labels using transform_calculate
+        # chart = chart.transform_calculate(
+        #     legend_label='datum.variable == "0" ? "Strongly Disagree" : datum.variable == "1" ? "Disagree" : datum.variable == "2" ? "Neutral" : datum.variable == "3" ? "Agree" : "4"'
+        # )
 
 
         # Display the chart in Streamlit
