@@ -130,12 +130,12 @@ def main():
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     #st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = reshaped_data.iloc[0:2].index
-    strongdisagree = reshaped_data.iloc[0:2, 0]
-    disagree = reshaped_data.iloc[0:2, 1]
-    neutral = reshaped_data.iloc[0:2, 2]
-    agree = reshaped_data.iloc[0:2, 3]
-    strongagree = reshaped_data.iloc[0:2, 4]
+    questions = reshaped_data.iloc[2:0].index
+    strongdisagree = reshaped_data.iloc[2:0, 0]
+    disagree = reshaped_data.iloc[2:0, 1]
+    neutral = reshaped_data.iloc[2:0, 2]
+    agree = reshaped_data.iloc[2:0, 3]
+    strongagree = reshaped_data.iloc[2:0, 4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
@@ -178,50 +178,9 @@ def main():
     # Display the chart in Streamlit
     st.pyplot(plt)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-########################################################################################################################################################
-############################################################################telos 2o test diagramma#####################################################
-########################################################################################################################################################
-
-
-    # Create the Plotly figure
-    fig = go.Figure()
-
-    # Add stacked bar traces
-    fig.add_trace(go.Bar(y=questions, x=proportion_strongdisagree, name='SD', marker_color='#c71d1d'))
-    fig.add_trace(go.Bar(y=questions, x=proportion_disagree, name='D', marker_color='#e28e8e'))
-    fig.add_trace(go.Bar(y=questions, x=proportion_neutral, name='N', marker_color='#e7e7e7'))
-    fig.add_trace(go.Bar(y=questions, x=proportion_agree, name='A', marker_color='#879caf'))
-    fig.add_trace(go.Bar(y=questions, x=proportion_strongagree, name='SA', marker_color='#1b617b'))
-
-    # Set the layout
-    fig.update_layout(barmode='relative', yaxis_autorange='reversed', xaxis_range=[0, 100])
-    fig.update_xaxes(tickangle=45, tickfont=dict(size=24))
-    fig.update_yaxes(tickfont=dict(size=24))
-
-    # Display the Plotly chart
-    st.plotly_chart(fig)
-
-
-
-
-
-
+    ########################################################################################################################################################
+    ############################################################################telos 2o test diagramma#####################################################
+    #######################################################################################################################################################
 
 
     ###################################################################################################################
