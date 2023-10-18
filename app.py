@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 import mysql.connector
 import datetime
 from streamlit import session_state
