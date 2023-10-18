@@ -273,7 +273,7 @@ def main():
                 order=alt.Order("variable", sort="ascending"),
             )
         )
-        st.altair_chart(chart, use_container_width=False)
+        st.altair_chart(chart, use_container_width=True)
     # Create of another two columns
     col6, col7 = st.columns(2)
 
