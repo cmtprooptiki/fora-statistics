@@ -194,54 +194,7 @@ def main():
 
     with col1:
         st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
-        # Populate the variables from the CSV
-        questions = reshaped_data.iloc[4:].index
-        strongdisagree = reshaped_data.iloc[4:,0]
-        disagree = reshaped_data.iloc[4:,1]
-        neutral = reshaped_data.iloc[4:,2]
-        agree = reshaped_data.iloc[4:,3]
-        strongagree = reshaped_data.iloc[4:,4]
-
-        # # Handle NaN values by replacing them with zeros
-        # strongdisagree = strongdisagree.fillna(0)
-        # disagree = disagree.fillna(0)
-        # neutral = neutral.fillna(0)
-        # agree = agree.fillna(0)
-        # strongagree = strongagree.fillna(0)
-
-        ind = [x for x, _ in enumerate(questions)]
-
-        # Calculate the percentages for the 100% stacked bars
-        total = strongdisagree + disagree + neutral + agree + strongagree
-        proportion_strongdisagree = (strongdisagree / total) * 100
-        proportion_disagree = (disagree / total) * 100
-        proportion_neutral = (neutral / total) * 100
-        proportion_agree = (agree / total) * 100
-        proportion_strongagree = (strongagree / total) * 100
-
-        # Create the chart
-        plt.subplots_adjust(right=4)
-
-        # Plot the bars
-        plt.barh(ind, proportion_strongagree, label='SA', color='#1b617b', left=proportion_strongdisagree + proportion_disagree + proportion_neutral + proportion_agree)
-        plt.barh(ind, proportion_agree, label='A', color='#879caf', left=proportion_strongdisagree + proportion_disagree + proportion_neutral)
-        plt.barh(ind, proportion_neutral, label='N', color='#e7e7e7', left=proportion_strongdisagree + proportion_disagree)
-        plt.barh(ind, proportion_disagree, label='D', color='#e28e8e', left=proportion_strongdisagree)
-        plt.barh(ind, proportion_strongdisagree, label='SD', color='#c71d1d') 
-
-        # Set the axes
-        plt.yticks(ind, questions)
-        plt.xlim(0, 100)
-
-        # Fine-tune the labels
-        ax = plt.gca()
-        plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
-        ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
-        ax.set_facecolor('white')
-        plt.tick_params(labelsize=24)
-
-        # Display the chart in Streamlit
-        st.pyplot(plt)
+        
 
     with col2:
         idiotita_counts=dfdata["idiotita"].value_counts()
@@ -275,6 +228,54 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+        # Populate the variables from the CSV
+        questions1 = reshaped_data.iloc[4:].index
+        strongdisagree1 = reshaped_data.iloc[4:,0]
+        disagree1 = reshaped_data.iloc[4:,1]
+        neutral1 = reshaped_data.iloc[4:,2]
+        agree1 = reshaped_data.iloc[4:,3]
+        strongagree1 = reshaped_data.iloc[4:,4]
+
+        # # Handle NaN values by replacing them with zeros
+        # strongdisagree = strongdisagree.fillna(0)
+        # disagree = disagree.fillna(0)
+        # neutral = neutral.fillna(0)
+        # agree = agree.fillna(0)
+        # strongagree = strongagree.fillna(0)
+
+        ind = [x for x, _ in enumerate(questions)]
+
+        # Calculate the percentages for the 100% stacked bars
+        total1 = strongdisagree1 + disagree1 + neutral1 + agree1 + strongagree1
+        proportion_strongdisagree1 = (strongdisagree1 / total1) * 100
+        proportion_disagree1 = (disagree1 / total1) * 100
+        proportion_neutral1 = (neutral1 / total1) * 100
+        proportion_agree1 = (agree1 / total1) * 100
+        proportion_strongagree1 = (strongagree1 / total1) * 100
+
+        # Create the chart
+        plt.subplots_adjust(right=4)
+
+        # Plot the bars
+        plt.barh(ind, proportion_strongagree1, label='SA', color='#1b617b', left=proportion_strongdisagree1 + proportion_disagree1 + proportion_neutral1 + proportion_agree1)
+        plt.barh(ind, proportion_agree1, label='A', color='#879caf', left=proportion_strongdisagree1 + proportion_disagree1 + proportion_neutral1)
+        plt.barh(ind, proportion_neutral1, label='N', color='#e7e7e7', left=proportion_strongdisagree1 + proportion_disagree1)
+        plt.barh(ind, proportion_disagree1, label='D', color='#e28e8e', left=proportion_strongdisagree1)
+        plt.barh(ind, proportion_strongdisagree1, label='SD', color='#c71d1d') 
+
+        # Set the axes
+        plt.yticks(ind, questions)
+        plt.xlim(0, 100)
+
+        # Fine-tune the labels
+        ax = plt.gca()
+        plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
+        ax.grid(color='black', linestyle='-', axis="x", linewidth=1)
+        ax.set_facecolor('white')
+        plt.tick_params(labelsize=24)
+
+        # Display the chart in Streamlit
+        st.pyplot(plt)
 
     # Inside the second column
     with col5:
