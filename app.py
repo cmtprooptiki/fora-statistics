@@ -310,10 +310,10 @@ def main():
             tbl[0:2,:],
             index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
         )
-        st.write(chart_data4)
-        st.bar_chart(chart_data4)
+        #st.write(chart_data4)
+        #st.bar_chart(chart_data4)
         chart_data44 = pd.melt(chart_data4.reset_index(), id_vars=["index"])
-        st.write(chart_data44)
+        #st.write(chart_data44)
 
         # Horizontal stacked bar chart
         chart = (
