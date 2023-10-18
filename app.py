@@ -124,6 +124,7 @@ def main():
     # Set the 'question' column as the index
     prep=reshaped_data
     prep.set_index('question', inplace=True)
+    prep = prep.reindex(index = [5, 4, 3, 2, 1, 0])
     row_sums= prep.sum(axis=1)
     percentage_data= round(prep.divide(row_sums,axis=0) *100,1)
     percentage_data.reset_index(drop=False, inplace=True)
