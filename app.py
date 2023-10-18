@@ -229,7 +229,7 @@ def main():
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         chart_data1 = pd.DataFrame(
-            tbl[4:5,0:4],
+            tbl[0:2,0:2],
             index=["l1","l2"]#,"l3","l4","l5","l6"],
         )
         st.write(chart_data1)
