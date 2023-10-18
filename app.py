@@ -198,20 +198,6 @@ def main():
 ############################################################################telos 2o test diagramma#####################################################
 ########################################################################################################################################################
 
-    questions = reshaped_data.index
-    strongdisagree = reshaped_data.iloc[:, 0]
-    disagree = reshaped_data.iloc[:, 1]
-    neutral = reshaped_data.iloc[:, 2]
-    agree = reshaped_data.iloc[:, 3]
-    strongagree = reshaped_data.iloc[:, 4]
-
-    # Calculate the percentages for the 100% stacked bars
-    total = strongdisagree + disagree + neutral + agree + strongagree
-    proportion_strongdisagree = (strongdisagree / total) * 100
-    proportion_disagree = (disagree / total) * 100
-    proportion_neutral = (neutral / total) * 100
-    proportion_agree = (agree / total) * 100
-    proportion_strongagree = (strongagree / total) * 100
 
     # Create the Plotly figure
     fig = go.Figure()
