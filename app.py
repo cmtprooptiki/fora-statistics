@@ -198,6 +198,44 @@ def main():
 ############################################################################telos 2o test diagramma#####################################################
 ########################################################################################################################################################
 
+    import pandas as pd
+    import plotly.graph_objects as go
+
+    # Assuming you have your data loaded into a DataFrame named 'reshaped_data'
+    # You can read your CSV using: reshaped_data = pd.read_csv('your_data.csv')
+
+    questions = reshaped_data.index
+    strongdisagree = reshaped_data.iloc[:, 0]
+    disagree = reshaped_data.iloc[:, 1]
+    neutral = reshaped_data.iloc[:, 2]
+    agree = reshaped_data.iloc[:, 3]
+    strongagree = reshaped_data.iloc[:, 4]
+
+    # Calculate the percentages for the 100% stacked bars
+    total = strongdisagree + disagree + neutral + agree + strongagree
+    proportion_strongdisagree = (strongdisagree / total) * 100
+    proportion_disagree = (disagree / total) * 100
+    proportion_neutral = (neutral / total) * 100
+    proportion_agree = (agree / total) * 100
+    proportion_strongagree = (strongagree / total) * 100
+
+    # Create the Plotly figure
+    fig = go.Figure()
+
+    # Add stacked bar traces
+    fig.add_trace(go.Bar(y=questions, x=proportion_strongdisagree, name='SD', marker_color='#c71d1d'))
+    fig.add_trace(go.Bar(y=questions, x=proportion_disagree, name='D', marker_color='#e28e8e'))
+    fig.add_trace(go.Bar(y=questions, x=proportion_neutral, name='N', marker_color='#e7e7e7'))
+    fig.add_trace(go.Bar(y=questions, x=proportion_agree, name='A', marker_color='#879caf'))
+    fig.add_trace(go.Bar(y=questions, x=proportion_strongagree, name='SA', marker_color='#1b617b'))
+
+    # Set the layout
+    fig.update_layout(barmode='relative', yaxis_autorange='reversed', xaxis_range=[0, 100])
+    fig.update_xaxes(tickangle=45, tickfont=dict(size=24))
+    fig.update_yaxes(tickfont=dict(size=24))
+
+    # Display the Plotly chart
+    st.plotly_chart(fig)
 
 
 
