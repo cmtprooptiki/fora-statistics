@@ -127,11 +127,7 @@ def main():
 
     x_data = xdata
 
-    y_data = ['The course was effectively<br>organized',
-            'The course developed my<br>abilities and skills ' +
-            'for<br>the subject', 'The course developed ' +
-            'my<br>ability to think critically about<br>the subject',
-            'I would recommend this<br>course to a friend']
+    y_data = ydata
 
     fig = go.Figure()
 
