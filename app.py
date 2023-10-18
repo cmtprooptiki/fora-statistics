@@ -237,18 +237,18 @@ def main():
     agree = percentage_data["4"]
     strongagree = percentage_data["5"]
 
-    ind = [x for x, _ in enumerate(questions)]
+    # ind = [x for x, _ in enumerate(questions)]
 
-    # Create a Streamlit app and display the bar chart
-    st.set_option('deprecation.showPyplotGlobalUse', False)
-    st.pyplot(plt)
+    # # Create a Streamlit app and display the bar chart
+    # st.set_option('deprecation.showPyplotGlobalUse', False)
+    # st.pyplot(plt)
 
-    st.bar_chart(strongdisagree, label='SD', color='#c71d1d')
-    st.bar_chart(disagree, label='D', color='#e28e8e')
-    st.bar_chart(neutral, label='N', color='#e7e7e7')
-    st.bar_chart(agree, label='A', color='#879caf')
-    st.bar_chart(strongagree, label='SA', color='#1b617b')
-    st.pyplot(plt)
+    # st.bar_chart(strongdisagree, label='SD', color='#c71d1d')
+    # st.bar_chart(disagree, label='D', color='#e28e8e')
+    # st.bar_chart(neutral, label='N', color='#e7e7e7')
+    # st.bar_chart(agree, label='A', color='#879caf')
+    # st.bar_chart(strongagree, label='SA', color='#1b617b')
+    # st.pyplot(plt)
 
 
 
