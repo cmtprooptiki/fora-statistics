@@ -122,22 +122,21 @@ def main():
 
     # #Creation of percentage df(every cell is the %of total of the row)
     # Set the 'question' column as the index
-    prep=reshaped_data
-    prep.set_index('question', inplace=True)
-    prep = prep.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
-    row_sums= prep.sum(axis=1)
-    percentage_data= round(prep.divide(row_sums,axis=0) *100,1)
+    reshaped_data.set_index('question', inplace=True)
+    reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
+    row_sums= reshaped_data.sum(axis=1)
+    percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     percentage_data.reset_index(drop=False, inplace=True)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
-    st.write(prep)
+    st.write(reshaped_data)
     #st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = prep.index
-    strongdisagree = prep.iloc[:,0]
-    disagree = prep.iloc[:,1]
-    neutral = prep.iloc[:,2]
-    agree = prep.iloc[:,3]
-    strongagree = prep.iloc[:,4]
+    questions = reshaped_data.index
+    strongdisagree = reshaped_data.iloc[:,0]
+    disagree = reshaped_data.iloc[:,1]
+    neutral = reshaped_data.iloc[:,2]
+    agree = reshaped_data.iloc[:,3]
+    strongagree = reshaped_data.iloc[:,4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
