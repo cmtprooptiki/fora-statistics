@@ -218,6 +218,8 @@ def main():
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
+    tbl=np.asanyarray(percentage_data)
+    st.write(tbl)
     
 
     # Create two columns
@@ -227,7 +229,7 @@ def main():
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         chart_data1 = pd.DataFrame(
-            np.asanyarray(percentage_data.iloc[4:5,:]),
+            tbl[4:5,:],
             index=["l1","l2"]#,"l3","l4","l5","l6"],
         )
         st.write(chart_data1)
