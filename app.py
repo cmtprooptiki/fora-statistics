@@ -230,10 +230,10 @@ def main():
     #populate the variables from the csv
     questions = percentage_data.question
     strongdisagree = percentage_data["1"]
-    disagree = percentage_data.2
-    neutral = percentage_data.3
-    agree = percentage_data.4
-    strongagree = percentage_data.5
+    disagree = percentage_data["2]"]
+    neutral = percentage_data["3"]
+    agree = percentage_data["4"]
+    strongagree = percentage_data["5"]
 
     ind = [x for x, _ in enumerate(questions)]
 
