@@ -130,12 +130,12 @@ def main():
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = reshaped_data.iloc[:,0]
-    strongdisagree = reshaped_data.iloc[:, 1]
-    disagree = reshaped_data.iloc[:, 2]
-    neutral = reshaped_data.iloc[:, 3]
-    agree = reshaped_data.iloc[:, 4]
-    strongagree = reshaped_data.iloc[:, 5]
+    questions = reshaped_data.index
+    strongdisagree = reshaped_data.iloc[:, 0]
+    disagree = reshaped_data.iloc[:, 1]
+    neutral = reshaped_data.iloc[:, 2]
+    agree = reshaped_data.iloc[:, 3]
+    strongagree = reshaped_data.iloc[:, 4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
