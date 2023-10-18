@@ -219,7 +219,7 @@ def main():
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     tbl=np.asanyarray(percentage_data)
-    st.write(tbl)
+    st.write("This is the numpy array table thta i use for the charts",tbl)
     
 
     # Create two columns
