@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import timedelta
 import numpy as np
+import matplotlib.pyplot as plt
 
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
