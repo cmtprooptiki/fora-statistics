@@ -274,12 +274,34 @@ def main():
             )
         )
         st.altair_chart(chart, use_container_width=True)
+
     # Create of another two columns
     col6, col7 = st.columns(2)
 
     # Inside the third column
     with col6:
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
+        chart_data3 = pd.DataFrame(
+            tbl[4:5,:],
+            index=["l4"]#,"l2","l3","l4","l5","l6"],
+        )
+        st.write(chart_data3)
+        st.bar_chart(chart_data3)
+        chart_data33 = pd.melt(chart_data3.reset_index(), id_vars=["index"])
+        st.write(chart_data33)
+
+        # Horizontal stacked bar chart
+        chart = (
+            alt.Chart(chart_data33)
+            .mark_bar()
+            .encode(
+                x=alt.X("value", type="quantitative", title=""),
+                y=alt.Y("index", type="nominal", title=""),
+                color=alt.Color("variable", type="nominal", title=""),
+                order=alt.Order("variable", sort="ascending"),
+            )
+        )
+        st.altair_chart(chart, use_container_width=True)
 
     # Inside the forth column
     with col7:
