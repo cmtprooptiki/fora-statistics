@@ -86,7 +86,7 @@ def main():
     # Initialize a new DataFrame to store the reshaped data
     reshaped_data = pd.DataFrame()
     # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
-    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
+    for question in ['l6', 'l5','l4', 'l3','l2', 'l1']:
         # Melt the DataFrame to stack the Likert scale values into rows
         melted = dfdata.melt(id_vars='idiotita', value_vars=[question], var_name='question')
 
@@ -130,12 +130,12 @@ def main():
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     #st.write(reshaped_data)
     # Populate the variables from the CSV
-    questions = reshaped_data.iloc[2:0].index
-    strongdisagree = reshaped_data.iloc[2:0, 0]
-    disagree = reshaped_data.iloc[2:0, 1]
-    neutral = reshaped_data.iloc[2:0, 2]
-    agree = reshaped_data.iloc[2:0, 3]
-    strongagree = reshaped_data.iloc[2:0, 4]
+    questions = reshaped_dataindex
+    strongdisagree = reshaped_data.iloc[:, 0]
+    disagree = reshaped_data.iloc[:, 1]
+    neutral = reshaped_data.iloc[:, 2]
+    agree = reshaped_data.iloc[:, 3]
+    strongagree = reshaped_data.iloc[, 4]
 
     # # Handle NaN values by replacing them with zeros
     # strongdisagree = strongdisagree.fillna(0)
