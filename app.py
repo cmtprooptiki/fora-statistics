@@ -100,9 +100,9 @@ def main():
         reshaped_data = pd.concat([reshaped_data, pivoted])
 
     # Reset the index of the final reshaped DataFrame
-    reshaped_data.reset_index(drop=True, inplace=True)
+    #reshaped_data.reset_index(drop=True, inplace=True)
     # Set the 'question' column as the index
-    reshaped_data.set_index('question', inplace=True)
+    #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
@@ -235,7 +235,7 @@ def main():
     #percentage_data[cols] = percentage_data[cols].round(2)
 
     # Create the stacked bar chart using Plotly Express
-    fig = px.bar(percentage_data, x=cols, y="question", orientation='h', labels={"5": 'Strongly Agree', "4": 'Agree', "3": 'Neutral', "2": 'Disagree', "1": 'Strongly Disagree'},
+    fig = px.bar(percentage_data, x=cols, y=percentage_data.index, orientation='h', labels={"5": 'Strongly Agree', "4": 'Agree', "3": 'Neutral', "2": 'Disagree', "1": 'Strongly Disagree'},
                 title="Survey Responses", text=cols, height=800)
 
     # Customize the colors
