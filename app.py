@@ -224,7 +224,7 @@ def main():
     #Creation of percentage df(every cell is the %of total of the row)
     row_sums= reshaped_data.sum(axis=1)
     st.write(row_sums)
-    percentage_data= reshaped_data.divide(row_sums,axis=0) *100
+    percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write(percentage_data)
 
 
