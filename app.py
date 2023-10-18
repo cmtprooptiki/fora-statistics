@@ -317,7 +317,7 @@ def main():
 
         # Horizontal stacked bar chart
         chart = (
-            alt.Chart(chart_data33)
+            alt.Chart(chart_data44)
             .mark_bar()
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
