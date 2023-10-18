@@ -106,12 +106,14 @@ def main():
     # Print the reshaped DataFrame
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
-    reshaped_data=reshaped_data.fillna(1)
+    #reshaped_data=reshaped_data.fillna(1) #dokimastiko gia na gemisoume tis times gia na vgainei to diagramma
     st.write(reshaped_data)
     # a=reshaped_data.iloc[0:1,0:5].transpose()[0].tolist()
     # st.write(a)
-    xdata=np.asarray(reshaped_data)#.iloc[0:1,0:5]
-    st.write(xdata[0:4,0:5])
+    xdata=np.asarray(reshaped_data)
+    ydata=np.asarray(reshaped_data["question)"])
+    st.write(xdata)
+    st.write(ydata)
 
 
     import plotly.graph_objects as go
