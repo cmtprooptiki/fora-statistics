@@ -86,7 +86,7 @@ def main():
     # Initialize a new DataFrame to store the reshaped data
     reshaped_data = pd.DataFrame()
     # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
-    for question in ['l6', 'l5','l4', 'l3','l2', 'l1']:
+    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
         # Melt the DataFrame to stack the Likert scale values into rows
         melted = dfdata.melt(id_vars='idiotita', value_vars=[question], var_name='question')
 
