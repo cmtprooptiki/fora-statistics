@@ -180,7 +180,20 @@ def main():
     ############################################################################telos 2o test diagramma#####################################################
     #######################################################################################################################################################
     st.bar_chart(reshaped_data)
+    reshaped_data2 = pd.melt(reshaped_data.reset_index(), id_vars=["index"])
 
+    # Horizontal stacked bar chart
+    chart = (
+        alt.Chart(reshaped_data2)
+        .mark_bar()
+        .encode(
+            x=alt.X("value", type="quantitative", title=""),
+            y=alt.Y("index", type="nominal", title=""),
+            color=alt.Color("variable", type="nominal", title=""),
+            order=alt.Order("variable", sort="descending"),
+        )
+    )
+    st.altair_chart(chart, use_container_width=True)
     ###################################################################################################################
     ###############################################START VAGGELIS######################################################
     ###################################################################################################################
