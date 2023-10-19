@@ -154,7 +154,7 @@ def main():
     column_names = reshaped_data.columns.tolist()
     # Print the column names
     st.write(column_names)
-    row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
+    row_sums= reshaped_data.loc[:,column_names[~""]].sum(axis=1)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write("This is the filtered data",filtered_data)
