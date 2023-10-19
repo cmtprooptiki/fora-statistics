@@ -155,13 +155,11 @@ def main():
     # Get the column names dynamically
     column_names = reshaped_data.columns.tolist()
     # Name of the column to check and potentially remove
-    column_to_check = ["","question"]
-    # Check if the column name exists in the list
-    if column_to_check in column_names:
-        # Remove the specified column name from the list
-        column_names.remove(column_to_check)
-    # Now, `column_names` contains all column names except the one to be removed
-    # Print the column names
+    columns_to_remove = ["","question"]
+    # Check if each column name exists in the list and remove it
+    for column_to_check in columns_to_remove:
+        if column_to_check in column_names:
+            column_names.remove(column_to_check)
     st.write(column_names)
     row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
