@@ -224,7 +224,7 @@ def main():
         chart_data33 = pd.melt(chart_data3.reset_index(), id_vars=["index"])
         #st.write(chart_data33)
 
-            # Horizontal stacked bar chart with labels
+        # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data33)
             .mark_bar()
@@ -233,12 +233,10 @@ def main():
                 y=alt.Y("index", type="nominal", title=""),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
-                text=alt.Text("value:Q", format=".1f"),
-                dx=alt.value(5),  # Adjust horizontal position of labels
             )
         )
-
         st.altair_chart(chart, use_container_width=True)
+
 
     # Inside the forth column
     with col7:
