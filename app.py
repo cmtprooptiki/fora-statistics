@@ -122,7 +122,7 @@ def main():
     # Initialize a new DataFrame to store the reshaped data
     reshaped_data = pd.DataFrame()
     # Loop through the Likert scale questions (e.g., 'q2' and 'q3')
-    for question in ['l3', 'l4','l5', 'l6']:
+    for question in ['l1', 'l2','l3', 'l4','l5', 'l6']:
         # Melt the DataFrame to stack the Likert scale values into rows
         melted = filtered_data.melt(id_vars='idiotita', value_vars=[question], var_name='question')
 
@@ -142,8 +142,8 @@ def main():
     #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
     st.write("ilias reshaped_data",reshaped_data)
-    reshaped_data=reshaped_data.rename(columns={"": "NAN"})
-    reshaped_data=reshaped_data.drop(columns=["NAN"])
+    # reshaped_data=reshaped_data.rename(columns={"": "NAN"})
+    # reshaped_data=reshaped_data.drop(columns=["NAN"])
     reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
     reshaped_data=reshaped_data.fillna(0)
     reshaped_data.set_index('question', inplace=True)
