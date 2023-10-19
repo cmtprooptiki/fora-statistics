@@ -161,7 +161,7 @@ def main():
         if column_to_check in column_names:
             column_names.remove(column_to_check)
     st.write(column_names)
-    row_sums= reshaped_data.loc[:,column_names]#.sum(axis=1)
+    row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
     st.write(row_sums)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
