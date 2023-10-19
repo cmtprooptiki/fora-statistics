@@ -178,14 +178,14 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-        # chart_datat=percentage_data[]
-        chart_data1 = pd.DataFrame(
-            tbl[4:6,:],
-            index=["l2","l1"]#,"l3","l4","l5","l6"],
-        )
-        st.write(chart_data1)
-        st.bar_chart(chart_data1)
-        chart_data11 = pd.melt(chart_data1.reset_index(), id_vars=["index"])
+        chart_datat=percentage_data.iloc[4:6,:]
+        # chart_data1 = pd.DataFrame(
+        #     tbl[4:6,:],
+        #     index=["l2","l1"]#,"l3","l4","l5","l6"],
+        # )
+        st.write(chart_datat)
+        st.bar_chart(chart_datat)
+        chart_data11 = pd.melt(chart_datat.reset_index(), id_vars=["index"])
         st.write(chart_data11)
 
         # Horizontal stacked bar chart
