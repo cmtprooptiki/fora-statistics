@@ -150,6 +150,8 @@ def main():
     # #Creation of percentage df(every cell is the %of total of the row)
     # Set the 'question' column as the index
     reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
+    reshaped_data.reset_index(drop=False,inplace=True)
+    st.write(reshaped_data)
     # Get the column names dynamically
     column_names = reshaped_data.columns.tolist()
     # Name of the column to check and potentially remove
@@ -177,6 +179,7 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+        chart_datat=percentage_data[]
         chart_data1 = pd.DataFrame(
             tbl[4:6,:],
             index=["l2","l1"]#,"l3","l4","l5","l6"],
