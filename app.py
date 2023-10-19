@@ -179,7 +179,7 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-        chart_datat=percentage_data[]
+        # chart_datat=percentage_data[]
         chart_data1 = pd.DataFrame(
             tbl[4:6,:],
             index=["l2","l1"]#,"l3","l4","l5","l6"],
