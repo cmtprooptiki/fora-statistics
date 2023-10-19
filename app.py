@@ -187,7 +187,7 @@ def main():
         # # )
         st.write(chart_data1)
         #st.bar_chart(chart_datat)
-        chart_data11 = pd.melt(chart_data1,var_name="column", value_name="value",id_vars="question")
+        chart_data11 = pd.melt(chart_data1,var_name="column", value_name="value",id_vars=["question"])
         st.write(chart_data11)
 
         # Horizontal stacked bar chart
