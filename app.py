@@ -164,7 +164,6 @@ def main():
     row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
     st.write(row_sums)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
-    reshaped_data.set_index('question', inplace=True)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write("This is the filtered data",filtered_data)
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
