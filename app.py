@@ -217,7 +217,7 @@ def main():
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
         chart_data3 = pd.DataFrame(
             tbl[2:3,:],
-            index=["ddfdfdfdfdfdfffffffffffffffffffffffffffffffffffffffffffffffffffffffff"]#,"l2","l3","l4","l5","l6"],
+            index=["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nfffffffffffffffffffffffffffff"]#,"l2","l3","l4","l5","l6"],
         )
         #st.write(chart_data3)
         #st.bar_chart(chart_data3)
