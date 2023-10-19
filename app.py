@@ -112,7 +112,7 @@ def main():
     if selected_idiotita == "Όλες οι Ιδιότητες":
         filtered_data = dfdata
         selected_idiotita = "Όλες οι ιδιότητες"
-        st.write("ilias filtered:",filtered_data)
+        #st.write("ilias filtered:",filtered_data)
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
 
@@ -141,7 +141,7 @@ def main():
     # Set the 'question' column as the index
     #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
-    st.write("ilias reshaped_data",reshaped_data)
+    #st.write("ilias reshaped_data",reshaped_data)
     # reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     # reshaped_data=reshaped_data.drop(columns=["NAN"])
     reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
@@ -151,7 +151,7 @@ def main():
     # Set the 'question' column as the index
     reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
     reshaped_data.reset_index(drop=False,inplace=True)
-    st.write(reshaped_data)
+    #st.write(reshaped_data)
     # Get the column names dynamically
     column_names = reshaped_data.columns.tolist()
     # Name of the column to check and potentially remove
@@ -160,9 +160,9 @@ def main():
     for column_to_check in columns_to_remove:
         if column_to_check in column_names:
             column_names.remove(column_to_check)
-    st.write(column_names)
+    #st.write(column_names)
     row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
-    st.write(row_sums)
+    #st.write(row_sums)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data[column_names].divide(row_sums,axis=0) *100,1)
     st.write("This is the filtered data",filtered_data)
