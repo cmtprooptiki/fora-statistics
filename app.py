@@ -150,7 +150,7 @@ def main():
     # #Creation of percentage df(every cell is the %of total of the row)
     # Set the 'question' column as the index
     reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
-    row_sums= reshaped_data.sum(axis=1)
+    row_sums= reshaped_data.iloc[:,1:5].sum(axis=1)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write("This is the filtered data",filtered_data)
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
