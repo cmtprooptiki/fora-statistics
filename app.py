@@ -217,7 +217,7 @@ def main():
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
         chart_data3 = pd.DataFrame(
             tbl[2:3,:],
-            index=["l4"]#,"l2","l3","l4","l5","l6"],
+            index=["ddfdfdfdfdfdfffffffffffffffffffffffffffffffffffffffffffffffffffffffff"]#,"l2","l3","l4","l5","l6"],
         )
         #st.write(chart_data3)
         #st.bar_chart(chart_data3)
@@ -235,7 +235,7 @@ def main():
                 order=alt.Order("variable", sort="ascending"),
             )
         )
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, use_container_width=False)
 
 
     # Inside the forth column
