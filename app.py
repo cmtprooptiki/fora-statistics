@@ -178,14 +178,14 @@ def main():
     # Inside the first column
     with col4:
         st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-        chart_datat=percentage_data.iloc[4:6,:]
+        chart_data1=percentage_data.iloc[4:6,:]
         # # chart_data1 = pd.DataFrame(
         # #     tbl[4:6,:],
         # #     index=["l2","l1"]#,"l3","l4","l5","l6"],
         # # )
-        st.write(chart_datat)
+        st.write(chart_data1)
         #st.bar_chart(chart_datat)
-        chart_data11 = pd.melt(chart_datat.reset_index(),var_name="variable", value_name="value",id_vars="index")
+        chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data11)
 
         # Horizontal stacked bar chart
@@ -204,13 +204,14 @@ def main():
     # Inside the second column
     with col5:
         st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
-        chart_data2 = pd.DataFrame(
-            tbl[3:4,:],
-            index=["l3"]#,"l2","l3","l4","l5","l6"],
-        )
+        chart_data2=percentage_data.iloc[3:4,:]
+        # chart_data2 = pd.DataFrame(
+        #     tbl[3:4,:],
+        #     index=["l3"]#,"l2","l3","l4","l5","l6"],
+        # )
         st.write(chart_data2)
         #st.bar_chart(chart_data2)
-        chart_data22 = pd.melt(chart_data2.reset_index(), id_vars=["index"])
+        chart_data22 = pd.melt(chart_data2.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data22)
 
         # Horizontal stacked bar chart
@@ -232,14 +233,15 @@ def main():
     # Inside the third column
     with col6:
         st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-        chart_data3 = pd.DataFrame(
-            tbl[2:3,:],
-            index=["l4"]#,"l2","l3","l4","l5","l6"],
-        )
-        #st.write(chart_data3)
+        chart_data3=percentage_data.iloc[2:3,:]
+        # chart_data3 = pd.DataFrame(
+        #     tbl[2:3,:],
+        #     index=["l4"]#,"l2","l3","l4","l5","l6"],
+        # )
+        st.write(chart_data3)
         #st.bar_chart(chart_data3)
-        chart_data33 = pd.melt(chart_data3.reset_index(), id_vars=["index"])
-        #st.write(chart_data33)
+        chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
+        st.write(chart_data33)
 
         # Horizontal stacked bar chart
         chart = (
@@ -258,14 +260,15 @@ def main():
     # Inside the forth column
     with col7:
         st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-        chart_data4 = pd.DataFrame(
-            tbl[0:2,:],
-            index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
-        )
-        #st.write(chart_data4)
+        chart_data4=percentage_data.iloc[0:2,:]
+        # chart_data4 = pd.DataFrame(
+        #     tbl[0:2,:],
+        #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
+        # )
+        st.write(chart_data4)
         #st.bar_chart(chart_data4)
-        chart_data44 = pd.melt(chart_data4.reset_index(), id_vars=["index"])
-        #st.write(chart_data44)
+        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
+        st.write(chart_data44)
 
         # Horizontal stacked bar chart
         chart = (
