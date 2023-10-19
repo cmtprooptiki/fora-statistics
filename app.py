@@ -112,6 +112,7 @@ def main():
     if selected_idiotita == "Όλες οι Ιδιότητες":
         filtered_data = dfdata
         selected_idiotita = "Όλες οι ιδιότητες"
+        st.write("ilias filtered:",filtered_data)
     else:
         filtered_data = dfdata[dfdata['idiotita'] == selected_idiotita]
 
@@ -140,6 +141,7 @@ def main():
     # Set the 'question' column as the index
     #reshaped_data.set_index('question', inplace=True)
     # Print the reshaped DataFrame
+    st.write("ilias reshaped_data",reshaped_data)
     reshaped_data=reshaped_data.rename(columns={"": "NAN"})
     reshaped_data=reshaped_data.drop(columns=["NAN"])
     reshaped_data["question"] = reshaped_data["question"].replace({'l1':"Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.","l2":"Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.","l3":"Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.","l4":"Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.","l5":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","l6":"Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."})
