@@ -225,19 +225,20 @@ def main():
         #st.write(chart_data33)
 
         # Horizontal stacked bar chart with labels
-        chart = (
-            alt.Chart(chart_data33)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
-                text=alt.Text("value:Q", format=".1f")  # Add labels to the bars
-            )
+    chart = (
+        alt.Chart(chart_data33)
+        .mark_bar()
+        .encode(
+            x=alt.X("value", type="quantitative", title=""),
+            y=alt.Y("index", type="nominal", title=""),
+            color=alt.Color("variable", type="nominal", title=""),
+            order=alt.Order("variable", sort="ascending"),
+            text=alt.Text("value:Q", format=".1f"),
+            dx=alt.value(5),  # Adjust horizontal position of labels
         )
+    )
 
-        st.altair_chart(chart, use_container_width=True)
+    st.altair_chart(chart, use_container_width=True)
 
     # Inside the forth column
     with col7:
