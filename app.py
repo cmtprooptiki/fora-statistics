@@ -211,7 +211,7 @@ def main():
         st.write(chart_data2)
         #st.bar_chart(chart_data2)
         chart_data22 = pd.melt(chart_data2.reset_index(), id_vars=["index"])
-        #st.write(chart_data22)
+        st.write(chart_data22)
 
         # Horizontal stacked bar chart
         chart = (
