@@ -155,7 +155,7 @@ def main():
     # Get the column names dynamically
     column_names = reshaped_data.columns.tolist()
     # Name of the column to check and potentially remove
-    column_to_check = ""
+    column_to_check = ["","question"]
     # Check if the column name exists in the list
     if column_to_check in column_names:
         # Remove the specified column name from the list
