@@ -165,6 +165,8 @@ def main():
     #st.write(row_sums)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data[column_names].divide(row_sums,axis=0) *100,1)
+    percentage_data["question"]=reshaped_data["question"]
+    percentage_data.set_idex("question",inplace=True)
     st.write("This is the filtered data",filtered_data)
     st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
