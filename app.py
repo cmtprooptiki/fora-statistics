@@ -152,9 +152,16 @@ def main():
     reshaped_data = reshaped_data.reindex(index = ["Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.", "Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.","Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.", "Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.", "Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία."])
     # Get the column names dynamically
     column_names = reshaped_data.columns.tolist()
+    # Name of the column to check and potentially remove
+    column_to_check = ""
+    # Check if the column name exists in the list
+    if column_to_check in column_names:
+        # Remove the specified column name from the list
+        column_names.remove(column_to_check)
+    # Now, `column_names` contains all column names except the one to be removed
     # Print the column names
     st.write(column_names)
-    row_sums= reshaped_data.loc[:,column_names[:,~""]].sum(axis=1)
+    row_sums= reshaped_data.loc[:,column_names].sum(axis=1)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data.divide(row_sums,axis=0) *100,1)
     st.write("This is the filtered data",filtered_data)
