@@ -177,7 +177,7 @@ def main():
 
     # Inside the first column
     with col4:
-        # st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+        st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         # chart_datat=percentage_data.iloc[4:6,:]
         # # chart_data1 = pd.DataFrame(
         # #     tbl[4:6,:],
