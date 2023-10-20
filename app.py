@@ -95,17 +95,7 @@ def main():
     dfdata["idiotita"] = dfdata["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
     # st.write("All Data from Query",dfdata)
 # Create a container with custom CSS to increase the height
-    st.markdown(
-        """
-        <style>
-        .stContainer {
-            height: 800px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-        
+
     #Create three columns
     col1,col2 = st.columns(2)
 
@@ -246,7 +236,7 @@ def main():
                 )
                 .properties(
     width='container',
-    height=250
+    height=200
 )
             )
             st.altair_chart(chart, use_container_width=True)
