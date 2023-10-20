@@ -291,10 +291,10 @@ def main():
             #     tbl[2:3,:],
             #     index=["l4"]#,"l2","l3","l4","l5","l6"],
             # )
-            st.write(chart_data3)
+            # st.write(chart_data3)
             #st.bar_chart(chart_data3)
             chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
-            st.write(chart_data33)
+            # st.write(chart_data33)
             # likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
             #                 1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
             #                 2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
@@ -317,6 +317,10 @@ def main():
                     color=alt.Color("variable", type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
                 )
+                .properties(
+    width=200,
+    height=100
+)
             )
             st.altair_chart(chart, use_container_width=True)
 
@@ -329,10 +333,10 @@ def main():
             #     tbl[0:2,:],
             #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
             # )
-            st.write(chart_data4)
+            # st.write(chart_data4)
             #st.bar_chart(chart_data4)
             chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
-            st.write(chart_data44)
+            # st.write(chart_data44)
             likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
                                     1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
                                     2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
@@ -357,10 +361,18 @@ def main():
                     color=alt.Color("variable", type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
     
-                    ).configure_axis(
+                    )
+                    .configure_axis(
         labelFontSize=10,
-        titleFontSize=15)
+        titleFontSize=15) 
+        .properties(
+    width=200,
+    height=100
+)
+
+
             )
+            
             st.altair_chart(chart, use_container_width=True)
 
 
