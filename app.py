@@ -40,6 +40,9 @@ def main():
    
   
     st.set_page_config(page_title="Sidebar Form Example",layout="wide")
+    with open( "style.css" ) as css:
+        st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
 
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
@@ -51,8 +54,6 @@ def main():
     sql = """
     select * from hs_survey_411958 where submitdate IS NOT NULL
         """
-    with open( "style.css" ) as css:
-        st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 
         
