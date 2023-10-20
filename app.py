@@ -198,151 +198,160 @@ def main():
                         }
 
     # Create two columns
-    col4, col5 = st.columns(2)
 
-    # Inside the first column
-    with col4:
-        st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-        chart_data1=percentage_data.iloc[4:6,:]
-        # # chart_data1 = pd.DataFrame(
-        # #     tbl[4:6,:],
-        # #     index=["l2","l1"]#,"l3","l4","l5","l6"],
-        # # )
+    with st.container():
+        col4, col5 = st.columns(2)
 
-        # st.write(chart_data1)
-        #st.bar_chart(chart_datat)
-        chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        # st.write(chart_data11)
-        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
-        # Horizontal stacked bar chart
-        chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
-        chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
 
-        # Horizontal stacked bar chart
-        chart = (
-            alt.Chart(chart_data11)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
+
+    # col4, col5 = st.columns(2)
+
+        # Inside the first column
+        with col4:
+            st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+            chart_data1=percentage_data.iloc[4:6,:]
+            # # chart_data1 = pd.DataFrame(
+            # #     tbl[4:6,:],
+            # #     index=["l2","l1"]#,"l3","l4","l5","l6"],
+            # # )
+
+            # st.write(chart_data1)
+            #st.bar_chart(chart_datat)
+            chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
+            # st.write(chart_data11)
+            likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+            # Horizontal stacked bar chart
+            chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
+            chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
+
+            # Horizontal stacked bar chart
+            chart = (
+                alt.Chart(chart_data11)
+                .mark_bar()
+                .encode(
+                    x=alt.X("value", type="quantitative", title=""),
+                    y=alt.Y("index", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title=""),
+                    order=alt.Order("variable", sort="ascending"),
+                )
             )
-        )
-        st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
 
-    # Inside the second column
-    with col5:
-        st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
-        chart_data2=percentage_data.iloc[3:4,:]
-        # chart_data2 = pd.DataFrame(
-        #     tbl[3:4,:],
-        #     index=["l3"]#,"l2","l3","l4","l5","l6"],
-        # )
-        # st.write(chart_data2)
-        #st.bar_chart(chart_data2)
-        chart_data22 = pd.melt(chart_data2.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        # st.write(chart_data22)
-        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
-        # Horizontal stacked bar chart
-        chart_data22['variable']=chart_data22['variable'].map(likert_mapping)
-        # Horizontal stacked bar chart
-        chart_data22['index']=chart_data22['index'].map(likert_question_mapping)
+        # Inside the second column
+        with col5:
+            st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
+            chart_data2=percentage_data.iloc[3:4,:]
+            # chart_data2 = pd.DataFrame(
+            #     tbl[3:4,:],
+            #     index=["l3"]#,"l2","l3","l4","l5","l6"],
+            # )
+            # st.write(chart_data2)
+            #st.bar_chart(chart_data2)
+            chart_data22 = pd.melt(chart_data2.reset_index(),var_name="variable", value_name="value",id_vars="index")
+            # st.write(chart_data22)
+            likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+            # Horizontal stacked bar chart
+            chart_data22['variable']=chart_data22['variable'].map(likert_mapping)
+            # Horizontal stacked bar chart
+            chart_data22['index']=chart_data22['index'].map(likert_question_mapping)
 
-        chart = (
-            alt.Chart(chart_data22)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
+            chart = (
+                alt.Chart(chart_data22)
+                .mark_bar()
+                .encode(
+                    x=alt.X("value", type="quantitative", title=""),
+                    y=alt.Y("index", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title=""),
+                    order=alt.Order("variable", sort="ascending"),
+                )
             )
-        )
-        st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
 
-    # Create of another two columns
-    col6, col7 = st.columns(2)
 
-    # Inside the third column
-    with col6:
-        st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-        chart_data3=percentage_data.iloc[2:3,:]
-        # chart_data3 = pd.DataFrame(
-        #     tbl[2:3,:],
-        #     index=["l4"]#,"l2","l3","l4","l5","l6"],
-        # )
-        st.write(chart_data3)
-        #st.bar_chart(chart_data3)
-        chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        st.write(chart_data33)
-        # likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
-        #                 1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
-        #                 2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-        #                 3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-        #                 4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
-        #                 5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
-        #                 }
-        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
-        # Horizontal stacked bar chart
-        chart_data33['variable']=chart_data33['variable'].map(likert_mapping)
-        chart_data33['index']=chart_data33['index'].map(likert_question_mapping)
+    with st.container():
+        col6, col7 = st.columns(2)
+    # # Create of another two columns
+    # col6, col7 = st.columns(2)
 
-        # Horizontal stacked bar chart
-        chart = (
-            alt.Chart(chart_data33)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
+        # Inside the third column
+        with col6:
+            st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
+            chart_data3=percentage_data.iloc[2:3,:]
+            # chart_data3 = pd.DataFrame(
+            #     tbl[2:3,:],
+            #     index=["l4"]#,"l2","l3","l4","l5","l6"],
+            # )
+            st.write(chart_data3)
+            #st.bar_chart(chart_data3)
+            chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
+            st.write(chart_data33)
+            # likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
+            #                 1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
+            #                 2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+            #                 3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+            #                 4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
+            #                 5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
+            #                 }
+            likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+            # Horizontal stacked bar chart
+            chart_data33['variable']=chart_data33['variable'].map(likert_mapping)
+            chart_data33['index']=chart_data33['index'].map(likert_question_mapping)
+
+            # Horizontal stacked bar chart
+            chart = (
+                alt.Chart(chart_data33)
+                .mark_bar()
+                .encode(
+                    x=alt.X("value", type="quantitative", title=""),
+                    y=alt.Y("index", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title=""),
+                    order=alt.Order("variable", sort="ascending"),
+                )
             )
-        )
-        st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
 
 
-    # Inside the forth column
-    with col7:
-        st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-        chart_data4=percentage_data.iloc[0:2,:]
-        # chart_data4 = pd.DataFrame(
-        #     tbl[0:2,:],
-        #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
-        # )
-        st.write(chart_data4)
-        #st.bar_chart(chart_data4)
-        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        st.write(chart_data44)
-        likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
-                                  1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
-                                  2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-                                  3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-                                  4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
-                                  5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
-                                  }
+        # Inside the forth column
+        with col7:
+            st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+            chart_data4=percentage_data.iloc[0:2,:]
+            # chart_data4 = pd.DataFrame(
+            #     tbl[0:2,:],
+            #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
+            # )
+            st.write(chart_data4)
+            #st.bar_chart(chart_data4)
+            chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
+            st.write(chart_data44)
+            likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
+                                    1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
+                                    2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+                                    3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+                                    4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
+                                    5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
+                                    }
 
-        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
-        # Horizontal stacked bar chart
-        chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
-        
-        chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
-        # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
-        st.write(chart_data44)
-        chart = (
-            alt.Chart(chart_data44)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
-  
-                   ).configure_axis(
-    labelFontSize=10,
-    titleFontSize=15)
-        )
-        st.altair_chart(chart, use_container_width=True)
+            likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+            # Horizontal stacked bar chart
+            chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
+            
+            chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
+            # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
+            st.write(chart_data44)
+            chart = (
+                alt.Chart(chart_data44)
+                .mark_bar()
+                .encode(
+                    x=alt.X("value", type="quantitative", title=""),
+                    y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
+                    color=alt.Color("variable", type="nominal", title=""),
+                    order=alt.Order("variable", sort="ascending"),
+    
+                    ).configure_axis(
+        labelFontSize=10,
+        titleFontSize=15)
+            )
+            st.altair_chart(chart, use_container_width=True)
 
 
 
