@@ -239,7 +239,8 @@ def main():
     height=200
 )
             )
-            st.altair_chart(chart, use_container_width=True)
+            # st.altair_chart(chart, use_container_width=True)
+            st.plotly_chart(chart,use_container_width=True)
 
         # Inside the second column
         with col5:
