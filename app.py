@@ -109,7 +109,7 @@ def main():
         # Adjust the width and height of the chart
         fig.update_layout(width=800, height=500)
         # Display the chart in your Streamlit app
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
 
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
