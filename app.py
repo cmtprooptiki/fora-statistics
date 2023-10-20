@@ -234,6 +234,10 @@ def main():
                     color=alt.Color("variable", type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
                 )
+                .properties(
+    width=200,
+    height=450
+)
             )
             st.altair_chart(chart, use_container_width=True)
 
