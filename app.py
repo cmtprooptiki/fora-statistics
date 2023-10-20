@@ -343,6 +343,7 @@ def main():
             # Horizontal stacked bar chart
             chart_data33['variable']=chart_data33['variable'].map(likert_mapping)
             chart_data33['index']=chart_data33['index'].map(likert_question_mapping)
+            color_scale = alt.Scale(domain=list(likert_colors.keys()), range=list(likert_colors.values()))
 
             # Horizontal stacked bar chart
             chart = (
@@ -351,7 +352,7 @@ def main():
                 .encode(
                     x=alt.X("value", type="quantitative", title=""),
                     y=alt.Y("index", type="nominal", title=""),
-                    color=alt.Color("variable", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title="",scale=color_scale),
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
@@ -387,6 +388,8 @@ def main():
             chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
             
             chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
+            color_scale = alt.Scale(domain=list(likert_colors.keys()), range=list(likert_colors.values()))
+
             # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
             # st.write(chart_data44)
             # scale = alt.Scale(
@@ -400,7 +403,7 @@ def main():
                     x=alt.X("value", type="quantitative", title=""),
                     y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
                     # color=alt.Color("variable",scale=scale, type="nominal", title=""),
-                    color=alt.Color("variable", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title="",scale=color_scale),
 
                     order=alt.Order("variable", sort="ascending"),
     
