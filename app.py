@@ -34,50 +34,12 @@ def update():
     
 def main():
 
-
+    #hello
 
     conn = init_connection()
    
   
     st.set_page_config(page_title="Sidebar Form Example",layout="wide")
-    # with open( "style.css" ) as css:
-    #     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
-
-        #hello
-    st.components.v1.html(
-        """
-
-        <script>
-            const animatedBackground = document.getElementById('root');
-            animatedBackground.innerHTML = `
-                <style>
-                    body {
-                        animation: gradient 10s ease infinite;
-                    }
-                    @keyframes gradient {
-                        0% {
-                            background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
-                        }
-                        25% {
-                            background: linear-gradient(45deg, #ABE9CD, #FFC3A0, #FFAFBD, #C0C0C0);
-                        }
-                        50% {
-                            background: linear-gradient(45deg, #C0C0C0, #ABE9CD, #FFC3A0, #FFAFBD);
-                        }
-                        75% {
-                            background: linear-gradient(45deg, #FFAFBD, #C0C0C0, #ABE9CD, #FFC3A0);
-                        }
-                        100% {
-                            background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
-                        }
-                    }
-                </style>
-            `;
-        </script>
-        """,
-        height=300  # Adjust the height as needed
-    )
-
 
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
