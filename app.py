@@ -344,10 +344,12 @@ def main():
         likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
-        
+        props = 'font-family: "Times New Roman", Times, serif; color: #e83e8c; font-size:1.3em;'
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
-        chart_data44['index'][0]="""<b>Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.</b>"""
+        # chart_data44['index'][0]="""<b>Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.</b>"""
         # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
+        chart_data44.style.map(lambda x: props, subset=['index'])
+
         st.write(chart_data44)
         chart = (
             alt.Chart(chart_data44)
