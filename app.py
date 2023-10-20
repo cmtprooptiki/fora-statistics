@@ -274,7 +274,7 @@ def main():
 
         # Horizontal stacked bar chart
         # legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
-        legend_mapping={5:"dfsfs","0":"0","1":"1","2":"2","3":"3","4":4}
+        legend_mapping={"5":"5","0":"0","1":"1","2":"2","3":"3","4":"4"}
         st.write(percentage_data.columns[1:])
         st.write(legend_mapping)
         chart_data44['variable']=chart_data44['variable'].astype(str)
@@ -287,7 +287,7 @@ def main():
                 # color=alt.Color("variable", type="nominal", title=""),
                 color=alt.Color("variable", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
                 order=alt.Order("variable", sort="ascending"),
-            ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_names}" : "Other"')
+            ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         )
         st.altair_chart(chart, use_container_width=True)
 
