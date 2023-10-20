@@ -236,7 +236,7 @@ def main():
                 )
                 .properties(
     width=200,
-    height=350
+    height=250
 )
             )
             st.altair_chart(chart, use_container_width=True)
