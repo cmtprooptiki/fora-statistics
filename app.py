@@ -287,7 +287,7 @@ def main():
                 # color=alt.Color("variable", type="nominal", title=""),
                 color=alt.Color("variable", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
                 order=alt.Order("variable", sort="ascending"),
-            ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
+            ).transform_calculate(variable=f'datum.variable == "{chart_data44.variable}" ? "{legend_mapping}" : "Other"')
         )
         st.altair_chart(chart, use_container_width=True)
 
