@@ -308,7 +308,9 @@ def main():
                 y=alt.Y("index", type="nominal", title=""),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
-            )
+            ).configure_axis(
+    labelFontSize=20,
+    titleFontSize=20)
         )
         st.altair_chart(chart, use_container_width=True)
 
