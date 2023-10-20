@@ -316,7 +316,7 @@ def main():
                 order=alt.Order("variable", sort="ascending"),
   
                    ).configure_axis(
-    labelFontSize=8,
+    labelFontSize=20,
     titleFontSize=15)
         )
         st.altair_chart(chart, use_container_width=True)
