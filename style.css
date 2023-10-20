@@ -25,7 +25,7 @@ h1 {
     font-weight: 500;
     color: #091747; */
 
-    color: var(--black, hsla(210, 100%, 1%, 0.586));
+    color: var(--black, hsla(210, 100%, 18%, 0.586));
 
  
 
