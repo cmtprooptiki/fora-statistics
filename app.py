@@ -364,13 +364,17 @@ def main():
             chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
             # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
             # st.write(chart_data44)
+            scale = alt.Scale(
+                domain=["Διαφωνώ απόλυτα", "Διαφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ", "Συμφωνώ", "Συμφωνώ απόλυτα"],
+                range=["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4", "#9467bd"],
+            )
             chart = (
                 alt.Chart(chart_data44)
                 .mark_bar()
                 .encode(
                     x=alt.X("value", type="quantitative", title=""),
                     y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
-                    color=alt.Color("variable", type="nominal", title=""),
+                    color=alt.Color("variable:N",scale=scale, type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
     
                     )
