@@ -346,7 +346,7 @@ def main():
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
         
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
-        chart_data44['index'][0]="""<strong>Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.</strong>"""
+        chart_data44['index'][0]="""<b>Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.</b>"""
         # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
         st.write(chart_data44)
         chart = (
