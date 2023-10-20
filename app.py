@@ -311,7 +311,7 @@ def main():
             .mark_bar()
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500)),
+                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
   
