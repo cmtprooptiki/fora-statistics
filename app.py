@@ -298,6 +298,7 @@ def main():
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
         
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
+        
         st.write(chart_data44)
         chart = (
             alt.Chart(chart_data44)
