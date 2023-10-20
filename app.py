@@ -49,7 +49,7 @@ def main():
         pass
 
     with col2:
-        st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=300)
+        st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=600)
 
 
     with col3:
