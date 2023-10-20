@@ -208,10 +208,11 @@ def main():
         # #     tbl[4:6,:],
         # #     index=["l2","l1"]#,"l3","l4","l5","l6"],
         # # )
-        st.write(chart_data1)
+        
+        # st.write(chart_data1)
         #st.bar_chart(chart_datat)
         chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        st.write(chart_data11)
+        # st.write(chart_data11)
         likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
         chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
