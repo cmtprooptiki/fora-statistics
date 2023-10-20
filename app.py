@@ -237,7 +237,7 @@ def main():
                 )
                 .properties(
     width=200,
-    height=400
+    height=100
 )
             )
 
