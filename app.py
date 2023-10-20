@@ -290,7 +290,7 @@ def main():
             ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         )
         st.altair_chart(chart, use_container_width=True)
-        st.write(chart_data44["variable"])
+        st.write(chart_data44["variable"].dtype())
 
         
 
