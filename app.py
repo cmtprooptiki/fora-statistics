@@ -271,7 +271,7 @@ def main():
         st.write(chart_data44)
 
         # Horizontal stacked bar chart
-        legend_names=['test1','test2']
+        legend_names=['test1','test2','t']
         legend_mapping = {}
         for i, legend_name in enumerate(legend_names):
             legend_mapping[percentage_data.columns[i + 1]] = legend_name
