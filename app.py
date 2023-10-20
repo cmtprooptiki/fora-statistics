@@ -352,7 +352,7 @@ def main():
             alt.Chart(chart_data44)
             .mark_bar()
             .encode(
-                x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labelLimit=400)),
+                x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labelLimit=100)),
                 y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
