@@ -116,6 +116,8 @@ def main():
     #Create three columns
     col1,col2 = st.columns(2)
 
+
+
     with col1:
 
         # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
@@ -126,7 +128,7 @@ def main():
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, title="Ιδιότητα Ερωτηθέντων:", hole=0.6)
         # Customize the layout if needed
-        fig.update_traces(textposition='auto', textinfo='percent')
+        fig.update_traces(textposition='auto', marker=dict(colors=['#d4afb9','#d1cfe2','#6881b4','#7ec4cf','#fcf5c7']), textinfo='percent')
         # Set the legend position to be below the chart
         fig.update_layout(legend=dict(orientation="h"))
         # Adjust the width and height of the chart
