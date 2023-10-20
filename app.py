@@ -239,7 +239,7 @@ def main():
     height=250
 )
             )
-            st.altair_chart(chart, use_container_width=True,height=500)
+            st.altair_chart(chart, use_container_width=True)
 
         # Inside the second column
         with col5:
