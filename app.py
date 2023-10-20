@@ -198,6 +198,9 @@ def main():
                         5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
                         }
 
+
+
+#################################################################
     # Create two columns
     chart_data1=percentage_data.iloc[4:6,:]
     # # chart_data1 = pd.DataFrame(
@@ -236,7 +239,25 @@ titleFontSize=10
     )
 
     
-    st.altair_chart(chart, use_container_width=True)
+    tab1, tab2 = st.tabs(["Streamlit theme (default)", "Altair native theme"])
+
+    with tab1:
+        # Use the Streamlit theme.
+        # This is the default. So you can also omit the theme argument.
+        # st.altair_chart(chart, theme="streamlit", use_container_width=True)
+        st.altair_chart(chart,theme="streamlit", use_container_width=True)
+
+    with tab2:
+        # Use the native Altair theme.
+        st.altair_chart(chart, theme=None, use_container_width=True)
+
+
+
+
+
+
+
+
 
 
     with st.container():
