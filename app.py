@@ -181,9 +181,12 @@ def main():
     #st.write(row_sums)
     # row_sums= reshaped_data.iloc[:,1:6].sum(axis=1)
     percentage_data= round(reshaped_data[column_names].divide(row_sums,axis=0) *100,1)
-    st.write("This is the filtered data",filtered_data)
-    st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
-    st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
+#DEBUGGING TABLES
+    # st.write("This is the filtered data",filtered_data)
+    # st.write("This is the reshaped data where every row is a likert question:",reshaped_data)
+    # st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
+
+
     # tbl=np.asanyarray(percentage_data.loc[:,column_names])
     # st.write("This is the numpy array table thta i use for the charts",tbl)
     likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
