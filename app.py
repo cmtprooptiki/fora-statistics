@@ -27,8 +27,10 @@ def update():
     
 def highlight_age(index):
  
-    return f'<span style="color: red; font-weight: bold;">{index}</span>'
-
+    result = ''
+    for i in range(0, len(index), 50):
+        result += index[i:i+50] + '<br>'
+    return result
     
 def main():
 
