@@ -231,13 +231,13 @@ def main():
                 .mark_bar()
                 .encode(
                     x=alt.X("value:O", type="quantitative", title=""),
-                    y=alt.Y("index", type="nominal", title=""),
+                    y=alt.Y("index:N", type="nominal", title=""),
                     color=alt.Color("variable", type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
     width=200,
-    height=200
+    height=400
 )
             )
 
