@@ -197,7 +197,9 @@ def main():
         #st.bar_chart(chart_datat)
         chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data11)
-
+        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+        # Horizontal stacked bar chart
+        chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
         # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data11)
@@ -223,7 +225,9 @@ def main():
         #st.bar_chart(chart_data2)
         chart_data22 = pd.melt(chart_data2.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data22)
-
+        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+        # Horizontal stacked bar chart
+        chart_data22['variable']=chart_data22['variable'].map(likert_mapping)
         # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data22)
@@ -252,7 +256,9 @@ def main():
         #st.bar_chart(chart_data3)
         chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data33)
-
+        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+        # Horizontal stacked bar chart
+        chart_data33['variable']=chart_data33['variable'].map(likert_mapping)
         # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data33)
