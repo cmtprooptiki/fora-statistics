@@ -99,7 +99,7 @@ def main():
         """
         <style>
         .stContainer {
-            height: 500px;
+            height: 800px;
         }
         </style>
         """,
