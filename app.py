@@ -56,7 +56,7 @@ def main():
     with col3:
         pass
 
-    st.markdown("<h1 style='text-align:center;'>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;background: #f7f7f7;border-radius: 9px;padding: 25px;'>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
 
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
