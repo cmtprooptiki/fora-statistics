@@ -280,7 +280,7 @@ def main():
         chart_data44['variable']=chart_data44['variable'].astype(str)
         chart = (
             alt.Chart(chart_data44)
-            .mark_bar()
+            .mark_bar(size=10)
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
                 y=alt.Y("index", type="nominal", title=""),
