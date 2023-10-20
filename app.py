@@ -9,6 +9,9 @@ from datetime import timedelta
 import numpy as np
 import matplotlib.pyplot as plt
 import altair as alt
+from html_shortcuts import *
+from streamlit.components.v1 import html
+
 
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"])
@@ -31,6 +34,11 @@ def main():
    
   
     st.set_page_config(page_title="Sidebar Form Example",layout="wide")
+
+                # Load the JavaScript function code
+    with open("animated_counter.js", "r") as file:
+            js_code = file.read()
+
     if 'submitted' not in st.session_state:
         st.session_state.submitted = False
 
@@ -86,8 +94,10 @@ def main():
     col1,col2 = st.columns(2)
 
     with col1:
-        st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
-        
+
+        # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
+        html_content1 = html_button1(js_code, dfdata["submitdate"].count())
+        html(html_content1,height=250)
 
     with col2:
         idiotita_counts=dfdata["idiotita"].value_counts()
