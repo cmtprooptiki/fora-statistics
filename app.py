@@ -351,7 +351,7 @@ def main():
             
             chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
             # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
-            st.write(chart_data44)
+            # st.write(chart_data44)
             chart = (
                 alt.Chart(chart_data44)
                 .mark_bar()
