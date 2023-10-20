@@ -235,11 +235,11 @@ def main():
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
-    width=300,
+    width=200,
     height=250
 )
             )
-            st.altair_chart(chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True,height=500)
 
         # Inside the second column
         with col5:
