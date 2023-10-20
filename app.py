@@ -259,6 +259,8 @@ def main():
 
     # Inside the forth column
     with col7:
+        # Define custom legend names
+        legend_names = ["Legend 1", "Legend 2"]
         st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
         chart_data4=percentage_data.iloc[0:2,:]
         # chart_data4 = pd.DataFrame(
@@ -271,6 +273,7 @@ def main():
         st.write(chart_data44)
 
         # Horizontal stacked bar chart
+        legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
 
         
         chart = (
@@ -279,9 +282,10 @@ def main():
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
                 y=alt.Y("index", type="nominal", title=""),
-                color=alt.Color("variable", type="nominal", title=""),
+                # color=alt.Color("variable", type="nominal", title=""),
+                color=alt.Color("variable:N", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
                 order=alt.Order("variable", sort="ascending"),
-            )
+            ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         )
         st.altair_chart(chart, use_container_width=True)
 
