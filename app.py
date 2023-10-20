@@ -125,7 +125,7 @@ def main():
         html(html_content1,height=250)
 
     with col2:
-        st.markdown("<h3 style='text-align:center;'>Ιδίοτητα Ερωτηθέντων</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey;'>Ιδίοτητα Ερωτηθέντων</h3>", unsafe_allow_html=True)
 
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
