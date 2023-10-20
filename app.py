@@ -374,7 +374,7 @@ def main():
                 .encode(
                     x=alt.X("value", type="quantitative", title=""),
                     y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
-                    color=alt.Color("variable:N",scale=scale, type="nominal", title=""),
+                    color=alt.Color("variable",scale=scale, type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
     
                     )
