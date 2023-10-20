@@ -273,8 +273,8 @@ def main():
         st.write(chart_data44)
 
         # Horizontal stacked bar chart
-        legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
-        st.write(percentage_data.columns[1:])
+        legend_mapping = dict(zip(percentage_data.columns[2:], legend_names))
+        st.write(percentage_data.columns[2:])
         st.write(legend_mapping)
         chart = (
             alt.Chart(chart_data44)
