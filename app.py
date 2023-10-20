@@ -273,19 +273,31 @@ def main():
         st.write(chart_data44)
 
         # Horizontal stacked bar chart
-        legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
+        # legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
 
         
+        # chart = (
+        #     alt.Chart(chart_data44)
+        #     .mark_bar()
+        #     .encode(
+        #         x=alt.X("value", type="quantitative", title=""),
+        #         y=alt.Y("index", type="nominal", title=""),
+        #         # color=alt.Color("variable", type="nominal", title=""),
+        #         color=alt.Color("variable:N", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
+        #         order=alt.Order("variable", sort="ascending"),
+        #     ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
+        # )
+        chart_data44 = pd.melt(chart_data4, id_vars=["index", "variable"], value_vars=["value"], var_name="value")
+
+        # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data44)
             .mark_bar()
             .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title=""),
-                # color=alt.Color("variable", type="nominal", title=""),
-                color=alt.Color("variable:N", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
-                order=alt.Order("variable", sort="ascending"),
-            ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
+                x=alt.X("sum(value):Q", title=""),
+                y=alt.Y("index:O", title=""),
+                color=alt.Color("variable:N", title="Legend Title"),
+            )
         )
         st.altair_chart(chart, use_container_width=True)
 
