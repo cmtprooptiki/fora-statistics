@@ -259,20 +259,20 @@ def main():
 
     # Inside the forth column
     with col7:
-        # Define custom legend names
-        legend_names = ["Legend 1", "Legend 2"]
-        st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-        chart_data4=percentage_data.iloc[0:2,:]
-        # chart_data4 = pd.DataFrame(
-        #     tbl[0:2,:],
-        #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
-        # )
-        st.write(chart_data4)
-        #st.bar_chart(chart_data4)
+        # # Define custom legend names
+        # legend_names = ["Legend 1", "Legend 2"]
+        # st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+        # chart_data4=percentage_data.iloc[0:2,:]
+        # # chart_data4 = pd.DataFrame(
+        # #     tbl[0:2,:],
+        # #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
+        # # )
+        # st.write(chart_data4)
+        # #st.bar_chart(chart_data4)
         # chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        st.write(chart_data44)
+        # st.write(chart_data44)
 
-        # Horizontal stacked bar chart
+        # # Horizontal stacked bar chart
         # legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
 
         
@@ -287,7 +287,17 @@ def main():
         #         order=alt.Order("variable", sort="ascending"),
         #     ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         # )
-        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
+        # st.altair_chart(chart, use_container_width=True)
+
+        # Sample data
+        data = pd.DataFrame({
+            "index": [0, 1, 0, 1],
+            "variable": [4, 4, 5, 5],
+            "value": [100, 0, 0, 100],
+        })
+
+        st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+        chart_data44 = pd.melt(data, id_vars=["index", "variable"], value_vars=["value"], var_name="value")
 
         # Horizontal stacked bar chart
         chart = (
@@ -299,6 +309,7 @@ def main():
                 color=alt.Color("variable:N", title="Legend Title"),
             )
         )
+
         st.altair_chart(chart, use_container_width=True)
 
 
