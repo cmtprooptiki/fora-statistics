@@ -275,7 +275,7 @@ def main():
         # Horizontal stacked bar chart
         legend_mapping = dict(zip(percentage_data.columns[1:], legend_names))
         st.write(percentage_data.columns[1:])
-        
+        st.write(legend_mapping)
         chart = (
             alt.Chart(chart_data44)
             .mark_bar()
