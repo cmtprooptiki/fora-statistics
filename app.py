@@ -226,38 +226,22 @@ def main():
             chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
 
             # Horizontal stacked bar chart
-#             chart = (
-#                 alt.Chart(chart_data11)
-#                 .mark_bar()
-#                 .encode(
-#                     x=alt.X("value", type="quantitative", title=""),
-#                     y=alt.Y("index", type="nominal", title=""),
-#                     color=alt.Color("variable", type="nominal", title=""),
-#                     order=alt.Order("variable", sort="ascending"),
-#                 )
-#                 .properties(
-#     width=200,
-#     height=200
-# )
-#             )
-
-
             chart = (
                 alt.Chart(chart_data11)
                 .mark_bar()
                 .encode(
-                    x=alt.X("value"),
-                    y=alt.Y("index"),
-                    color='site',
+                    x=alt.X("value:O", type="quantitative", title=""),
+                    y=alt.Y("index:N", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title=""),
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
-                width=200,
-                height=200
-                )
+    width=200,
+    height=200
+)
             )
 
-
+            
             st.altair_chart(chart, use_container_width=True)
             
 
