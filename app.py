@@ -29,7 +29,7 @@ def highlight_age(index):
  
     result = ''
     for i in range(0, len(index), 50):
-        result += index[i:i+50] + '<br>'
+        result += index[i:i+50] + '/n'
     return result
     
 def main():
