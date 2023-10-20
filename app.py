@@ -199,6 +199,45 @@ def main():
                         }
 
     # Create two columns
+    chart_data1=percentage_data.iloc[4:6,:]
+    # # chart_data1 = pd.DataFrame(
+    # #     tbl[4:6,:],
+    # #     index=["l2","l1"]#,"l3","l4","l5","l6"],
+    # # )
+
+    # st.write(chart_data1)
+    #st.bar_chart(chart_datat)
+    chart_data11 = pd.melt(chart_data1.reset_index(),var_name="variable", value_name="value",id_vars="index")
+    # st.write(chart_data11)
+    likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
+    # Horizontal stacked bar chart
+    chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
+    chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
+
+    # Horizontal stacked bar chart
+    chart = (
+        alt.Chart(chart_data11)
+        .mark_bar()
+        .encode(
+            x=alt.X("value:O", type="quantitative", title=""),
+            y=alt.Y("index:N", type="nominal", title=""),
+            color=alt.Color("variable", type="nominal", title=""),
+            order=alt.Order("variable", sort="ascending"),
+        )
+        .properties(
+width=200,
+height=100
+)
+.configure_axis(
+labelFontSize=10,
+titleFontSize=10
+)
+
+    )
+
+    
+    st.altair_chart(chart, use_container_width=True)
+
 
     with st.container():
         col4, col5 = st.columns(2)
