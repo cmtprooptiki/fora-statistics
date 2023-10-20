@@ -307,7 +307,7 @@ titleFontSize=10
             )
 
             
-            st.altair_chart(chart, theme="streamlit", use_container_width=True)
+            st.altair_chart(chart, theme=None, use_container_width=True)
             
 
         # Inside the second column
