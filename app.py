@@ -25,12 +25,12 @@ def run_query(conn,query):
 def update():
     st.session_state.submitted = True
     
-def highlight_age(index):
+# def highlight_age(index):
  
-    result = ''
-    for i in range(0, len(index), 50):
-        result += index[i:i+50] + '/n'
-    return result
+#     result = ''
+#     for i in range(0, len(index), 50):
+#         result += index[i:i+50] + '/n'
+#     return result
     
 def main():
 
@@ -304,7 +304,7 @@ def main():
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
         
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
-        chart_data44['index'] = chart_data44['index'].apply(highlight_age)
+        # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
         st.write(chart_data44)
         chart = (
             alt.Chart(chart_data44)
@@ -314,9 +314,10 @@ def main():
                 y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=150)),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
-            ).configure_axis(
-    labelFontSize=10,
-    titleFontSize=15)
+  
+              )  #         ).configure_axis(
+    # labelFontSize=10,
+    # titleFontSize=15)
         )
         st.altair_chart(chart, use_container_width=True)
 
