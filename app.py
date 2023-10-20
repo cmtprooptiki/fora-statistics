@@ -240,8 +240,8 @@ def main():
     height=100
 )
 .configure_axis(
-    labelFontSize=5,
-    titleFontSize=20
+    labelFontSize=10,
+    titleFontSize=10
 )
 
             )
