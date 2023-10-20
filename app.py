@@ -34,7 +34,16 @@ def update():
     
 def main():
 
-    #hello
+
+
+    conn = init_connection()
+   
+  
+    st.set_page_config(page_title="Sidebar Form Example",layout="wide")
+    # with open( "style.css" ) as css:
+    #     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
+        #hello
     html_code = """
     <!DOCTYPE html>
     <html>
@@ -68,18 +77,10 @@ def main():
     </html>
     """
 
-    st.title("Animated Gradient Background")
     st.write("This is a Streamlit app with an animated gradient background.")
 
     # Embed the HTML code to create the animated background
     st.markdown(html_code, unsafe_allow_html=True)
-
-    conn = init_connection()
-   
-  
-    st.set_page_config(page_title="Sidebar Form Example",layout="wide")
-    # with open( "style.css" ) as css:
-    #     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
 
                 # Load the JavaScript function code
