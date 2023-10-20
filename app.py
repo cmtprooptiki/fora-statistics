@@ -362,9 +362,9 @@ def main():
                     order=alt.Order("variable", sort="ascending"),
     
                     )
-                    .configure_axis(
-        labelFontSize=10,
-        titleFontSize=15) 
+        #             .configure_axis(
+        # labelFontSize=10,
+        # titleFontSize=15) 
         .properties(
     width=200,
     height=100
