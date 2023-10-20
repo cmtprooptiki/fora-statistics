@@ -269,7 +269,7 @@ def main():
         # )
         st.write(chart_data4)
         #st.bar_chart(chart_data4)
-        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
+        # chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data44)
 
         # Horizontal stacked bar chart
@@ -287,7 +287,7 @@ def main():
         #         order=alt.Order("variable", sort="ascending"),
         #     ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         # )
-        chart_data44 = pd.melt(chart_data4, id_vars=["index", "variable"], value_vars=["value"], var_name="value")
+        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
 
         # Horizontal stacked bar chart
         chart = (
