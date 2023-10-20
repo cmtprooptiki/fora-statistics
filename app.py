@@ -106,6 +106,17 @@ def main():
         fig.update_traces(textposition='auto', textinfo='percent')
         # Set the legend position to be below the chart
         fig.update_layout(legend=dict(orientation="h"))
+
+          # Update the layout
+        fig.update_layout(
+            legend=dict(
+                orientation="h",  # Horizontal legend
+                yanchor="bottom",    # Anchor legend to the top
+                y=1.1,           # Adjust the distance of the legend from the pie chart
+                bgcolor='rgba(255, 255, 255, 0)',  # Set legend background color as transparent
+                traceorder='normal'  # Maintain the order of the legend labels
+                )
+        )
         # Adjust the width and height of the chart
         fig.update_layout(width=800, height=500)
         # Display the chart in your Streamlit app
