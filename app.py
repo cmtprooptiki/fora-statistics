@@ -312,7 +312,7 @@ def main():
 )
             
             )
-            st.altair_chart(chart, theme=None, use_container_width=True)
+            st.altair_chart(chart, theme='streamlit', use_container_width=True)
 
 
     with st.container():
@@ -360,7 +360,7 @@ def main():
     height=100
 )
             )
-            st.altair_chart(chart,theme=None, use_container_width=True)
+            st.altair_chart(chart,theme='streamlit', use_container_width=True)
 
 
         # Inside the forth column
@@ -419,7 +419,7 @@ def main():
 
             )
             
-            st.altair_chart(chart,theme=None, use_container_width=True)
+            st.altair_chart(chart,theme='streamlit', use_container_width=True)
 
 
 
