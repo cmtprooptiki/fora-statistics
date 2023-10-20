@@ -40,7 +40,7 @@ def main():
    
   
     st.set_page_config(page_title="Sidebar Form Example",layout="wide")
-    st.markdown("<h1>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-algin:center;'>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
 
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
