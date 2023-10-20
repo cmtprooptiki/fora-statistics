@@ -199,7 +199,7 @@ def main():
 
     # Create two columns
 
-    with st.container():
+    with st.container(height=500):
         col4, col5 = st.columns(2)
 
 
