@@ -237,8 +237,13 @@ def main():
                 )
                 .properties(
     width=200,
-    height=50
+    height=100
 )
+.configure_axis(
+    labelFontSize=5,
+    titleFontSize=20
+)
+
             )
 
             
