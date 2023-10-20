@@ -248,7 +248,7 @@ def main():
                 .encode(
                     x=alt.X("value"),
                     y=alt.Y("index"),
-                    color=alt.Color("variable"),
+                    color='site',
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
