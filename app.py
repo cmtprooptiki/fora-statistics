@@ -271,7 +271,7 @@ def main():
                 )
                 .properties(
     width='container',
-    height=200
+    height=100
 )
             
             )
