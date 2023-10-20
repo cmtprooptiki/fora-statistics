@@ -288,6 +288,7 @@ def main():
                 order=alt.Order("variable", sort="ascending"),
             ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         )
+        st.write(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         st.altair_chart(chart, use_container_width=True)
 
         
