@@ -214,7 +214,13 @@ def main():
                         5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
                         }
 
-
+    likert_colors = {
+        'Διαφωνώ απόλυτα': 'red',
+        'Διαφωνώ': 'orange',
+        'Ούτε συμφωνώ ούτε διαφωνώ': 'yellow',
+        'Συμφωνώ': 'green',
+        'Συμφωνώ απόλυτα': 'blue'
+    }
 
 #################################################################
   
@@ -245,6 +251,8 @@ def main():
             chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
             chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
 
+            # Create the color scale using the likert_colors mapping
+            color_scale = alt.Scale(domain=list(likert_colors.keys()), range=list(likert_colors.values()))
             # Horizontal stacked bar chart
             chart = (
                 alt.Chart(chart_data11)
@@ -252,7 +260,7 @@ def main():
                 .encode(
                     x=alt.X("value:O", type="quantitative", title=""),
                     y=alt.Y("index:N", type="nominal", title=""),
-                    color=alt.Color("variable", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title="",scale=color_scale),
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
@@ -287,6 +295,7 @@ def main():
             chart_data22['variable']=chart_data22['variable'].map(likert_mapping)
             # Horizontal stacked bar chart
             chart_data22['index']=chart_data22['index'].map(likert_question_mapping)
+            color_scale = alt.Scale(domain=list(likert_colors.keys()), range=list(likert_colors.values()))
 
             chart = (
                 alt.Chart(chart_data22)
@@ -294,7 +303,7 @@ def main():
                 .encode(
                     x=alt.X("value", type="quantitative", title=""),
                     y=alt.Y("index", type="nominal", title=""),
-                    color=alt.Color("variable", type="nominal", title=""),
+                    color=alt.Color("variable", type="nominal", title="",scale=color_scale),
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
