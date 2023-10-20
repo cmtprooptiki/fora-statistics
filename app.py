@@ -321,50 +321,6 @@ def main():
         )
         st.altair_chart(chart, use_container_width=True)
 
-    with st.container():
-        st.write("New container")
-        st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-        chart_data4=percentage_data.iloc[0:2,:]
-        # chart_data4 = pd.DataFrame(
-        #     tbl[0:2,:],
-        #     index=["l6","l5"]#,"l2","l3","l4","l5","l6"],
-        # )
-        st.write(chart_data4)
-        #st.bar_chart(chart_data4)
-        chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
-        st.write(chart_data44)
-        likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
-                                    1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
-                                    2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-                                    3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
-                                    4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
-                                    5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
-                                    }
-
-        likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
-        # Horizontal stacked bar chart
-        chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
-        props = 'font-family: "Times New Roman", Times, serif; color: #e83e8c; font-size:1.3em;'
-        chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
-        # chart_data44['index'][0]="""<b>Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.</b>"""
-        # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
-        chart_data44.style.map(lambda x: props, subset=['index'])
-
-        st.write(chart_data44)
-        chart = (
-            alt.Chart(chart_data44)
-            .mark_bar()
-            .encode(
-                x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
-                color=alt.Color("variable", type="nominal", title=""),
-                order=alt.Order("variable", sort="ascending"),
-
-                            ).configure_axis(
-            labelFontSize=10,
-            titleFontSize=15)
-                )
-        st.altair_chart(chart, use_container_width=True)
 
 
 
