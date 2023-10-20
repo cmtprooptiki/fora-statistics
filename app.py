@@ -279,9 +279,9 @@ def main():
         #st.bar_chart(chart_data4)
         chart_data44 = pd.melt(chart_data4.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data44)
-
+        likert_mapping = {1: 'Διαφωνώ απόλυτα', 2: 'Διαφωνώ', 3: 'Ούτε συμφωνώ ούτε διαφωνώ', 4: 'Συμφωνώ', 5: 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
-        
+        chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
         chart = (
             alt.Chart(chart_data44)
             .mark_bar()
