@@ -282,6 +282,7 @@ def main():
         likert_mapping = {1: 'Διαφωνώ απόλυτα', 2: 'Διαφωνώ', 3: 'Ούτε συμφωνώ ούτε διαφωνώ', 4: 'Συμφωνώ', 5: 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
+        st.write(chart_data44)
         chart = (
             alt.Chart(chart_data44)
             .mark_bar()
