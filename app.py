@@ -187,7 +187,7 @@ def main():
 
     # Inside the first column
     with col4:
-        st.title("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+        st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
         chart_data1=percentage_data.iloc[4:6,:]
         # # chart_data1 = pd.DataFrame(
         # #     tbl[4:6,:],
@@ -213,7 +213,7 @@ def main():
 
     # Inside the second column
     with col5:
-        st.title("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
+        st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
         chart_data2=percentage_data.iloc[3:4,:]
         # chart_data2 = pd.DataFrame(
         #     tbl[3:4,:],
@@ -242,7 +242,7 @@ def main():
 
     # Inside the third column
     with col6:
-        st.title("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
+        st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
         chart_data3=percentage_data.iloc[2:3,:]
         # chart_data3 = pd.DataFrame(
         #     tbl[2:3,:],
@@ -269,7 +269,7 @@ def main():
 
     # Inside the forth column
     with col7:
-        st.title("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+        st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
         chart_data4=percentage_data.iloc[0:2,:]
         # chart_data4 = pd.DataFrame(
         #     tbl[0:2,:],
