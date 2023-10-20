@@ -346,13 +346,14 @@ def main():
         chart_data44['variable']=chart_data44['variable'].map(likert_mapping)
         
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
+        chart_data44['index'][0]='Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία \n κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.'
         # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
         st.write(chart_data44)
         chart = (
             alt.Chart(chart_data44)
             .mark_bar()
             .encode(
-                x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labelLimit=50)),
+                x=alt.X("value", type="quantitative", title=""),
                 y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500,labelFontSize=9)),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
