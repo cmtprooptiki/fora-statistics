@@ -235,7 +235,7 @@ def main():
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
-    width=200,
+    width='container',
     height=250
 )
             )
