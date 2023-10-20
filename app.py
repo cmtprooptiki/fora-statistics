@@ -39,8 +39,21 @@ def main():
     conn = init_connection()
    
   
-    st.set_page_config(page_title="Sidebar Form Example",layout="wide")
-    st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=300)
+    st.set_page_config(page_title="Fora Survey Visualization",layout="wide")
+
+
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        pass
+
+    with col2:
+        st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=300)
+
+
+    with col3:
+        pass
 
     st.markdown("<h1 style='text-align:center;'>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
 
