@@ -94,8 +94,18 @@ def main():
     dfdata=pd.DataFrame(rows,columns=columns_headers)
     dfdata["idiotita"] = dfdata["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
     # st.write("All Data from Query",dfdata)
-
-    
+# Create a container with custom CSS to increase the height
+    st.markdown(
+        """
+        <style>
+        .stContainer {
+            height: 500px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+        
     #Create three columns
     col1,col2 = st.columns(2)
 
