@@ -46,11 +46,9 @@ def main():
         #hello
     st.components.v1.html(
         """
-        <div id="animated-background">
-            <!-- Content of your Streamlit app goes here -->
-        </div>
+
         <script>
-            const animatedBackground = document.getElementById('animated-background');
+            const animatedBackground = document.getElementById('root');
             animatedBackground.innerHTML = `
                 <style>
                     body {
