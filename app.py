@@ -311,13 +311,13 @@ def main():
             .mark_bar()
             .encode(
                 x=alt.X("value", type="quantitative", title=""),
-                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=500, tickCount=500)),
+                y=alt.Y("index", type="nominal", title="",axis=alt.Axis(labelLimit=200, tickCount=500)),
                 color=alt.Color("variable", type="nominal", title=""),
                 order=alt.Order("variable", sort="ascending"),
   
-              )  #         ).configure_axis(
-    # labelFontSize=10,
-    # titleFontSize=15)
+                   ).configure_axis(
+    labelFontSize=8,
+    titleFontSize=15)
         )
         st.altair_chart(chart, use_container_width=True)
 
