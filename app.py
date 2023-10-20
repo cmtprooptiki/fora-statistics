@@ -51,6 +51,39 @@ def main():
     sql = """
     select * from hs_survey_411958 where submitdate IS NOT NULL
         """
+    html_code = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <style>
+    body {
+        background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+        background-position: 100% 50%;
+        }
+        100% {
+        background-position: 0% 50%;
+        }
+    }
+    </style>
+    </head>
+    <body>
+    </body>
+    </html>
+    """
+
+    st.title("Animated Gradient Background")
+    st.write("This is a Streamlit app with an animated gradient background.")
+
+    st.markdown(html_code, unsafe_allow_html=True)
 
         
     
