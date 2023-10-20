@@ -283,7 +283,7 @@ def main():
                 x=alt.X("value", type="quantitative", title=""),
                 y=alt.Y("index", type="nominal", title=""),
                 # color=alt.Color("variable", type="nominal", title=""),
-                color=alt.Color("variable", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
+                color=alt.Color("variable:variable", legend=alt.Legend(title="Legend Title"), scale=alt.Scale(scheme="category20"), sort=legend_names),
                 order=alt.Order("variable", sort="ascending"),
             ).transform_calculate(variable=f'datum.variable == "{legend_mapping}" ? "{legend_mapping}" : "Other"')
         )
