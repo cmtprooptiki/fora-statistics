@@ -367,7 +367,7 @@ def main():
         # titleFontSize=15) 
         .properties(
     width=200,
-    height=50
+    height=100
 )
 
 
