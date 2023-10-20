@@ -347,7 +347,7 @@ def main():
         
         chart_data44['index']=chart_data44['index'].map(likert_question_mapping)
         chart_data44['index'][0]="""Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία 
-        \n κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."""
+        \\n κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού."""
         # chart_data44['index'] = chart_data44['index'].apply(highlight_age)
         st.write(chart_data44)
         chart = (
