@@ -93,7 +93,7 @@ def main():
     # st.write(columnames)
     dfdata=pd.DataFrame(rows,columns=columns_headers)
     dfdata["idiotita"] = dfdata["idiotita"].replace({'A1': "Στέλεχος νοσοκομείου (διοικητικό στέλεχος, υπεύθυνος/η ποιότητας, φαρμακείου & προμηθειών)","A2": "Στέλεχος Υπουργείου Υγείας ή άλλου οργανισμού χάραξης πολιτικής","A3":"Στέλεχος φαρμακευτικής, ή άλλης εταιρείας/ φορέα, που δραστηριοποιείται στο χώρο της υγείας","A4":"Φοιτητής","-oth-":"Άλλο"})
-    st.write("All Data from Query",dfdata)
+    # st.write("All Data from Query",dfdata)
 
     
     #Create three columns
