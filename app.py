@@ -186,7 +186,13 @@ def main():
     st.write("This is the percentage data where every cell is the percentage(%) of total for every row",percentage_data)
     # tbl=np.asanyarray(percentage_data.loc[:,column_names])
     # st.write("This is the numpy array table thta i use for the charts",tbl)
-    
+    likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
+                        1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
+                        2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+                        3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+                        4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
+                        5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
+                        }
 
     # Create two columns
     col4, col5 = st.columns(2)
@@ -206,6 +212,8 @@ def main():
         likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
         chart_data11['variable']=chart_data11['variable'].map(likert_mapping)
+        chart_data11['index']=chart_data11['index'].map(likert_question_mapping)
+
         # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data11)
@@ -235,6 +243,8 @@ def main():
         # Horizontal stacked bar chart
         chart_data22['variable']=chart_data22['variable'].map(likert_mapping)
         # Horizontal stacked bar chart
+        chart_data22['index']=chart_data22['index'].map(likert_question_mapping)
+
         chart = (
             alt.Chart(chart_data22)
             .mark_bar()
@@ -262,9 +272,18 @@ def main():
         #st.bar_chart(chart_data3)
         chart_data33 = pd.melt(chart_data3.reset_index(),var_name="variable", value_name="value",id_vars="index")
         st.write(chart_data33)
+        # likert_question_mapping= {0: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία κατάρτισης και ελέγχου νοσοκομειακού προϋπολογισμού.', 
+        #                 1: 'Η εφαρμογή του συστήματος DRGs θα βελτιώσει τη διαδικασία αποζημίωσης περιστατικών στα νοσοκομεία.', 
+        #                 2: 'Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ στα νοσοκομεία θα βελτιώσει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+        #                 3: 'Η διεξαγωγή κλινικών μελετών στα νοσοκομεία βελτιώνει την ποιότητα των παρεχόμενων υπηρεσιών.', 
+        #                 4: 'Η προμήθεια φαρμάκων μέσω της ΕΚΑΠΥ θα συμβάλει στη μείωση των δαπανών.',
+        #                 5: 'Η ΕΚΑΠΥ θα βελτιώσει τη διαδικασία προμηθειών φαρμάκου στα νοσοκομεία.'
+        #                 }
         likert_mapping = {'1': 'Διαφωνώ απόλυτα', '2': 'Διαφωνώ', '3': 'Ούτε συμφωνώ ούτε διαφωνώ', '4': 'Συμφωνώ', '5': 'Συμφωνώ απόλυτα'}
         # Horizontal stacked bar chart
         chart_data33['variable']=chart_data33['variable'].map(likert_mapping)
+        chart_data33['index']=chart_data33['index'].map(likert_question_mapping)
+
         # Horizontal stacked bar chart
         chart = (
             alt.Chart(chart_data33)
