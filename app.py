@@ -44,43 +44,41 @@ def main():
     #     st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
         #hello
-    html_code = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <style>
-      body {
-        animation: gradient 10s ease infinite;
-      }
-
-      @keyframes gradient {
-        0% {
-          background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
-        }
-        25% {
-          background: linear-gradient(45deg, #ABE9CD, #FFC3A0, #FFAFBD, #C0C0C0);
-        }
-        50% {
-          background: linear-gradient(45deg, #C0C0C0, #ABE9CD, #FFC3A0, #FFAFBD);
-        }
-        75% {
-          background: linear-gradient(45deg, #FFAFBD, #C0C0C0, #ABE9CD, #FFC3A0);
-        }
-        100% {
-          background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
-        }
-      }
-    </style>
-    </head>
-    <body>
-    </body>
-    </html>
-    """
-
-    st.write("This is a Streamlit app with an animated gradient background.")
-
-    # Embed the HTML code to create the animated background
-    st.markdown(html_code, unsafe_allow_html=True)
+    st.components.v1.html(
+        """
+        <div id="animated-background">
+            <!-- Content of your Streamlit app goes here -->
+        </div>
+        <script>
+            const animatedBackground = document.getElementById('animated-background');
+            animatedBackground.innerHTML = `
+                <style>
+                    body {
+                        animation: gradient 10s ease infinite;
+                    }
+                    @keyframes gradient {
+                        0% {
+                            background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
+                        }
+                        25% {
+                            background: linear-gradient(45deg, #ABE9CD, #FFC3A0, #FFAFBD, #C0C0C0);
+                        }
+                        50% {
+                            background: linear-gradient(45deg, #C0C0C0, #ABE9CD, #FFC3A0, #FFAFBD);
+                        }
+                        75% {
+                            background: linear-gradient(45deg, #FFAFBD, #C0C0C0, #ABE9CD, #FFC3A0);
+                        }
+                        100% {
+                            background: linear-gradient(45deg, #FFC3A0, #FFAFBD, #C0C0C0, #ABE9CD);
+                        }
+                    }
+                </style>
+            `;
+        </script>
+        """,
+        height=300  # Adjust the height as needed
+    )
 
 
                 # Load the JavaScript function code
