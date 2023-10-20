@@ -321,8 +321,8 @@ def main():
         )
         st.altair_chart(chart, use_container_width=True)
 
-        with st.container():
-            st.write("New container")
+    with st.container():
+        st.write("New container")
 
 
 
