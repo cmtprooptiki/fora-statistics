@@ -57,7 +57,7 @@ body{
 }
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.st-emotion-cache-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(6) > div > div > div:nth-child(1){ 
     border-radius: 40px;
-    border: 7px solid #1BDAFF;
+    border: 7px solid linear-gradient(241deg, #1BDAFF 49.06%, #154AAD 119.47%);
     background: #FFF;
     box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.25);
     padding: 25px;
