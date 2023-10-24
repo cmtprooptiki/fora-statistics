@@ -147,7 +147,7 @@ def main():
 # Create a container with custom CSS to increase the height
 
     with st.container():
-        st.write("sdadsa")
+        st.subheader('This is a subheader with a divider', divider='blue')
 
 
 
