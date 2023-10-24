@@ -14,7 +14,11 @@ def html_button1(js_code,val):
                                 <div style="text-align:right;">
 
                                 </div>
-                                <div id="counter" style="text-align: left; color:black;font-family:'Source Sans Pro',sans-serif;font-weight: bold; font-size: 60px;"></div>
+                                <div id="counter" style="text-align: left; color:black;font-family:'Source Sans Pro',sans-serif;font-weight: bold; font-size: 60px; opacity: 0.5;
+                                background: var(--G2, linear-gradient(270deg, #1BDAFF 0.35%, #154AAD 128.82%));
+                                background-clip: text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;"></div>
                                 <div>
                                    
                                     <div style="text-align:left; color: black; font-size: 24px; font-family:  'Source Sans Pro',sans-serif; font-weight: 300; line-height: 24px; word-wrap: break-word">Αριθμός Συμμετεχόντων</div>
