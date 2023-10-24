@@ -21,7 +21,7 @@ def html_button1(js_code,val):
                                 -webkit-text-fill-color: transparent;"></div>
                                 <div>
                                    
-                                    <div style="text-align:left; color: black; font-size: 24px; font-weight:700; font-family:  'Roboto Medium','sans-serif'; font-weight: 300; line-height: 24px; word-wrap: break-word">Αριθμός Συμμετεχόντων</div>
+                                    <div style="text-align:left; color: black; font-size: 24px; font-weight:700; font-family:  'Roboto Medium','sans-serif'; font-weight: 300; line-height: 24px; word-wrap: break-word; padding-top:16px;">Αριθμός Συμμετεχόντων</div>
                                 </div>
                             </div>
                         </div>
