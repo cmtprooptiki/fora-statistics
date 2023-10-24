@@ -65,13 +65,14 @@ def main():
         <style>
         .header {
             background-image: url('https://healthcare-management.gr/wp-content/uploads/2023/10/Header.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             height: 453px;
             width: -webkit-fill-available;
             position: revert-layer;
             color: white;
             text-align: center;
+            background-repeat: no-repeat;
         }
 
   
