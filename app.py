@@ -294,7 +294,7 @@ def main():
         # Inside the second column
         with col5:
            # st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
-            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα<strong></h3>", unsafe_allow_html=True)
+            st.markdown("<h3 ><strong>Κλινικές μελέτες:</strong> Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα</h3>", unsafe_allow_html=True)
 
             chart_data2=percentage_data.iloc[3:4,:]
             # chart_data2 = pd.DataFrame(
@@ -338,7 +338,7 @@ def main():
         # Inside the third column
         with col6:
             #st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ<strong></h3>", unsafe_allow_html=True)
+            st.markdown("<h3 ><strong>Ποιότητα υπηρεσιών υγείας:</strong> Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ</h3>", unsafe_allow_html=True)
 
             chart_data3=percentage_data.iloc[2:3,:]
             # chart_data3 = pd.DataFrame(
@@ -383,7 +383,7 @@ def main():
         # Inside the forth column
         with col7:
             #st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
-            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα<strong></h3>", unsafe_allow_html=True)
+            st.markdown("<h3 ><strong>Εφαρμογή του συστήματος DRGs:</strong> Προκλήσεις εφαρμογής & πρώτα αποτελέσματα</h3>", unsafe_allow_html=True)
 
             chart_data4=percentage_data.iloc[0:2,:]
             # chart_data4 = pd.DataFrame(
