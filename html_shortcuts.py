@@ -2,7 +2,7 @@ def html_button1(js_code,val):
     html_content_1=f"""
                     <body>
                         <div style="display:flex; justify-content: center; " >
-                            <div style="width:310px; display: flex;align-items: left;flex-direction: column;flex-wrap: nowrap;padding-top: 12px; padding-bottom: 12px; padding-left:24px; padding-right:24px; border: 10px solid;
+                            <div style="width:310px; display: flex;align-items: left;flex-direction: column;flex-wrap: nowrap;padding-top: 40px; padding-bottom: 40px; padding-left:40px; padding-right:100px; border: 10px solid;
                             border-image-slice: 1;
                             border-width: 5px;
                             background: #FFF;
