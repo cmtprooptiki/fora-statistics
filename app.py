@@ -84,7 +84,7 @@ def main():
             </div>
         </div>
         """
-    )
+    ,unsafe_allow_html=True)
 
     # The content of your Streamlit app goes below the header
     st.write("Your Streamlit App Content Goes Here")
