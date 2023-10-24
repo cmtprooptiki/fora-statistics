@@ -248,7 +248,7 @@ def main():
         # Inside the first column
         with col4:
             #st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
-            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Προμήθειες φαρμάκων:</strong> Διερεύνηση του ρόλου της ΕΚΑΠΥ</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 ><strong>Προμήθειες φαρμάκων:</strong> Διερεύνηση του ρόλου της ΕΚΑΠΥ</h3>", unsafe_allow_html=True)
             chart_data1=percentage_data.iloc[4:6,:]
             # # chart_data1 = pd.DataFrame(
             # #     tbl[4:6,:],
