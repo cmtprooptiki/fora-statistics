@@ -285,7 +285,7 @@ def main():
 
 #################################################################
     with st.container():
-        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
+        st.markdown("""<div><br></br><br></br></div>""",unsafe_allow_html=True)
 
 
     with st.container():
@@ -379,7 +379,7 @@ def main():
             )
             st.altair_chart(chart, theme='streamlit', use_container_width=True)
     with st.container():
-        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
+        st.markdown("""<div><br></br><br></br></div>""",unsafe_allow_html=True)
 
     with st.container():
         col6, col7 = st.columns(2)
