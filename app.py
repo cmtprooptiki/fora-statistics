@@ -149,7 +149,7 @@ def main():
     with st.container():
             col0, col01 = st.columns(2)
             with col0:
-                st.image('https://healthcare-management.gr/wp-content/uploads/2023/10/Group-29.png',width=250)
+                st.image('https://healthcare-management.gr/wp-content/uploads/2023/10/Group-29.png',width=400)
             with col01:
                 st.markdown("<h3>Έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h3>",unsafe_allow_html=True)
 
