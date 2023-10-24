@@ -5,9 +5,9 @@ h3 {
     font-weight: 500;
     color: #091747; */
 
-    color: var(--Blk1, var(--BLK1, #111415));
+    color: black;
     leading-trim: both;
-
+    text-align:left;
     text-edge: cap;
     font-family: Roboto Medium;
     font-size: 16px;
