@@ -82,9 +82,7 @@ def main():
         }
         </style>
         <div class="header">
-            <div class="header-text">
-                Your Header Text Goes Here
-            </div>
+       
         </div>
         """
     ,unsafe_allow_html=True)
