@@ -126,6 +126,7 @@ def main():
         html(html_content1,height=250)
 
     with col2:
+        st.markdown("<div class='custom_container'>",unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; color: grey;'>Ιδίοτητα Ερωτηθέντων</h3>", unsafe_allow_html=True)
 
         idiotita_counts=dfdata["idiotita"].value_counts()
@@ -144,6 +145,7 @@ def main():
         #fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
         # Display the chart in your Streamlit app
         st.plotly_chart(fig,use_container_width=True)
+        st.markdown("</div>",unsafe_allow_html=True)
 
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
