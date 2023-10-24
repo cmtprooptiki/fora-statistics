@@ -117,3 +117,7 @@ body{
     flex-wrap: nowrap;
     justify-content: center;
 }
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.st-emotion-cache-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(3) > div > div > div:nth-child(2){
+    display: flex;
+    align-items: center;
+}
