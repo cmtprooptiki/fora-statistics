@@ -338,7 +338,7 @@ def main():
         # Inside the third column
         with col6:
             #st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-            st.markdown("<h3 ><strong>Ποιότητα υπηρεσιών υγείας:</strong> Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='font-size:32px;'><strong>Ποιότητα υπηρεσιών υγείας:</strong> Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ</h3>", unsafe_allow_html=True)
 
             chart_data3=percentage_data.iloc[2:3,:]
             # chart_data3 = pd.DataFrame(
