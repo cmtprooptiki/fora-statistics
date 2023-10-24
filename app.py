@@ -172,6 +172,8 @@ def main():
             # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
             html_content1 = html_button1(js_code, dfdata["submitdate"].count())
             html(html_content1,height=250)
+            st.markdown("""<iframe width="560" height="315" src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> allow=”autoplay”</iframe>
+ """,unsafe_allow_html=True)
 
         with col2:
             st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδιότητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
