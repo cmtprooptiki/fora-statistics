@@ -59,7 +59,7 @@ body{
     border: 10px solid;
     border-image-slice: 1;
     border-width: 5px;
-    border-image-source:
+    border-image:
     linear-gradient(
       to right, 
       #1BDAFF, #154AAD
