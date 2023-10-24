@@ -247,7 +247,8 @@ def main():
 
         # Inside the first column
         with col4:
-            st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+            #st.subheader("Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ")
+            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Προμήθειες φαρμάκων: Διερεύνηση του ρόλου της ΕΚΑΠΥ<strong></h3>", unsafe_allow_html=True)
             chart_data1=percentage_data.iloc[4:6,:]
             # # chart_data1 = pd.DataFrame(
             # #     tbl[4:6,:],
@@ -292,7 +293,9 @@ def main():
 
         # Inside the second column
         with col5:
-            st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
+           # st.subheader("Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα")
+            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Κλινικές μελέτες: Προκλήσεις στην υλοποίηση κλινικών μελετών στην Ελλάδα<strong></h3>", unsafe_allow_html=True)
+
             chart_data2=percentage_data.iloc[3:4,:]
             # chart_data2 = pd.DataFrame(
             #     tbl[3:4,:],
@@ -334,7 +337,9 @@ def main():
 
         # Inside the third column
         with col6:
-            st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
+            #st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
+            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ<strong></h3>", unsafe_allow_html=True)
+
             chart_data3=percentage_data.iloc[2:3,:]
             # chart_data3 = pd.DataFrame(
             #     tbl[2:3,:],
@@ -377,7 +382,9 @@ def main():
 
         # Inside the forth column
         with col7:
-            st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+            #st.subheader("Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα")
+            st.markdown("<h3 style='text-align: center; color: grey;'><strong>Εφαρμογή του συστήματος DRGs: Προκλήσεις εφαρμογής & πρώτα αποτελέσματα<strong></h3>", unsafe_allow_html=True)
+
             chart_data4=percentage_data.iloc[0:2,:]
             # chart_data4 = pd.DataFrame(
             #     tbl[0:2,:],
