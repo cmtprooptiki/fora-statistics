@@ -145,7 +145,7 @@ def main():
 # Create a container with custom CSS to increase the height
 
     with st.container():
-        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
+        st.markdown("""<div><br></br><br></br></div>""",unsafe_allow_html=True)
 
 
 
