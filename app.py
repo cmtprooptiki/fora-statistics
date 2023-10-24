@@ -41,23 +41,53 @@ def main():
   
     st.set_page_config(page_title="Fora Survey Visualization",layout="wide")
 
+
+
     with open( "style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
-    col1, col2, col3 = st.columns(3)
+    # col1, col2, col3 = st.columns(3)
 
-    with col1:
-        pass
+    # with col1:
+    #     pass
 
-    with col2:
-        st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=600)
+    # with col2:
+    #     st.image("https://health-survey.gr/tmp/assets/44f91fe6/Logo_new%20-2-.png", width=600)
 
 
-    with col3:
-        pass
+    # with col3:
+    #     pass
 
-    st.markdown("<h1 style='text-align:center;background: #f7f7f7;border-radius: 9px;padding: 25px;'>Οπτικοποίηση αποτελεσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
+    # st.markdown("<h1 style='text-align:center;background: #f7f7f7;border-radius: 9px;padding: 25px;'>Οπτικοποίηση αποτελεσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
+    # Add the HTML and CSS for the header
+    st.markdown(
+        """
+        <style>
+        .header {
+            background-image: url('https://healthcare-management.gr/wp-content/uploads/2023/10/Header.png'); /* Specify the URL of your image */
+            background-size: cover;
+            background-position: center;
+            height: 300px; /* Adjust the height as needed */
+            width: 100%;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        .header-text {
+            padding: 100px 0;
+            font-size: 24px;
+        }
+        </style>
+        <div class="header">
+            <div class="header-text">
+                Your Header Text Goes Here
+            </div>
+        </div>
+        """
+    )
 
+    # The content of your Streamlit app goes below the header
+    st.write("Your Streamlit App Content Goes Here")
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
             js_code = file.read()
