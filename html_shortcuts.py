@@ -2,7 +2,15 @@ def html_button1(js_code,val):
     html_content_1=f"""
                     <body>
                         <div style="display:flex; justify-content: center; " >
-                            <div style="width:310px; background: linear-gradient(138deg, rgba(198.55, 215.22, 244.37, 0.56) 0%, rgba(96, 239, 255, 0.55) 100%); display: flex;align-items: center;flex-direction: column;flex-wrap: nowrap;border: 1px solid transparent;border-radius: 16px;padding-top: 12px; padding-bottom: 12px; padding-left:24px; padding-right:24px;">
+                            <div style="width:310px; display: flex;align-items: center;flex-direction: column;flex-wrap: nowrap;padding-top: 12px; padding-bottom: 12px; padding-left:24px; padding-right:24px; border: 10px solid;
+                            border-image-slice: 1;
+                            border-width: 5px;
+                            background: #FFF;
+                            border-color: #d7edff;
+                            border-radius: 20px;
+                            /* background-image: linear-gradient(135deg, #ffcc00, #ff6699); */
+                            box-shadow: -2px 2px 20px 0px rgba(0, 0, 0, 0.25);
+                            ">
                                 <div style="text-align:right;">
 
                                 </div>
