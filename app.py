@@ -141,7 +141,7 @@ def main():
         fig.update_layout(paper_bgcolor='red')
 
         # Set the border radius to 16px
-        fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
+        #fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
         # Display the chart in your Streamlit app
         st.plotly_chart(fig,use_container_width=True)
 
