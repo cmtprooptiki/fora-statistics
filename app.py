@@ -172,11 +172,9 @@ def main():
             # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
             html_content1 = html_button1(js_code, dfdata["submitdate"].count())
             html(html_content1,height=250)
-            st.markdown("""<iframe width="560" height="315" 
-                        src="https://healthcare-management.gr/wp-content/uploads/2023/10/ds.mp4?autoplay=1" 
-                        frameborder="0"  allow="autoplay;"  
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-presentation" loop> 
-                        </iframe>
+            st.markdown("""<img width="560" height="315" 
+                        src="https://healthcare-management.gr/wp-content/uploads/2023/10/Group-30-1.png" > 
+                        </img>
  """,unsafe_allow_html=True)
 
         with col2:
