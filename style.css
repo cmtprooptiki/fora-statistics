@@ -5,15 +5,16 @@ h3 {
     font-weight: 500;
     color: #091747; */
 
-    color: var(--black, hsla(210, 100%, 1%, 0.586));
+    color: var(--Blk1, var(--BLK1, #111415));
+    leading-trim: both;
 
- 
-
-    /* H3 */
-    font-family: Roboto !important;
-    
+    text-edge: cap;
+    font-family: Roboto;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.8px;
     
     
 
