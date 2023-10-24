@@ -174,7 +174,7 @@ def main():
             html(html_content1,height=250)
             st.markdown("""<iframe width="560" height="315" 
                         src="https://healthcare-management.gr/wp-content/uploads/2023/10/ds.mp4?autoplay=1" 
-                        frameborder="0"  allowfullscreen  allow="autoplay; fullscreen"  
+                        frameborder="0"  allow="autoplay;"  
                         sandbox="allow-same-origin allow-scripts allow-popups allow-presentation"> 
                         </iframe>
  """,unsafe_allow_html=True)
