@@ -159,7 +159,8 @@ def main():
                             <span> Οργάνωση & Διοίκηση των Νοσοκομειακών</span>  <br>
                             <span> Μονάδων</span> </h3>""",unsafe_allow_html=True)
 
-
+    with st.container():
+        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
 
     #Create three columns
     with st.container():
@@ -283,7 +284,8 @@ def main():
     }
 
 #################################################################
-  
+    with st.container():
+        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
 
 
     with st.container():
@@ -376,7 +378,8 @@ def main():
             
             )
             st.altair_chart(chart, theme='streamlit', use_container_width=True)
-
+    with st.container():
+        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
 
     with st.container():
         col6, col7 = st.columns(2)
