@@ -59,4 +59,5 @@ body{
     background-color: red !important;
     padding: 25px;
     border-radius: 16px;
+    border: 1px solid blue;
 }
