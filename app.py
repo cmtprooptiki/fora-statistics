@@ -145,37 +145,48 @@ def main():
     # st.write("All Data from Query",dfdata)
 # Create a container with custom CSS to increase the height
 
+
+    with st.container():
+            col0, col01 = st.columns(2)
+            with col0:
+                st.write("Col0")
+            with col01:
+                st.write("Col0")
+
+
+
     #Create three columns
-    col1,col2 = st.columns(2)
+    with st.container():
+        col1,col2 = st.columns(2)
 
 
 
-    with col1:
+        with col1:
 
-        # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
-        html_content1 = html_button1(js_code, dfdata["submitdate"].count())
-        html(html_content1,height=250)
+            # st.metric(label="Αριθμός Ολοκληρωμένων Ερωτηματολογίων",value=dfdata["submitdate"].count())
+            html_content1 = html_button1(js_code, dfdata["submitdate"].count())
+            html(html_content1,height=250)
 
-    with col2:
-        st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδιότητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
+        with col2:
+            st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδιότητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
 
-        idiotita_counts=dfdata["idiotita"].value_counts()
-        fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
-        # Customize the layout if needed
-        fig.update_traces(textposition='auto', marker=dict(colors=['#7ec4cf','#6881b4','#d1cfe2','#d4afb9','#fcf5c7']), textinfo='percent')
-        # Set the legend position to be below the chart
-        fig.update_layout(legend=dict(orientation="h"))
-        # Adjust the width and height of the chart
-        fig.update_layout(width=800, height=500)
+            idiotita_counts=dfdata["idiotita"].value_counts()
+            fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
+            # Customize the layout if needed
+            fig.update_traces(textposition='auto', marker=dict(colors=['#7ec4cf','#6881b4','#d1cfe2','#d4afb9','#fcf5c7']), textinfo='percent')
+            # Set the legend position to be below the chart
+            fig.update_layout(legend=dict(orientation="h"))
+            # Adjust the width and height of the chart
+            fig.update_layout(width=800, height=500)
 
-        # Change background color to red
-        # fig.update_layout(paper_bgcolor='red')
+            # Change background color to red
+            # fig.update_layout(paper_bgcolor='red')
 
-        # Set the border radius to 16px
-        #fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
-        # Display the chart in your Streamlit app
-        st.plotly_chart(fig,use_container_width=True)
-        st.markdown("</div>",unsafe_allow_html=True)
+            # Set the border radius to 16px
+            #fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
+            # Display the chart in your Streamlit app
+            st.plotly_chart(fig,use_container_width=True)
+            st.markdown("</div>",unsafe_allow_html=True)
 
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
