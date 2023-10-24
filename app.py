@@ -126,7 +126,7 @@ def main():
         html(html_content1,height=250)
 
     with col2:
-        st.markdown("<h3 style='text-align: center; color: grey;'><strong>Ιδίοτητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: grey; font-size:32px;'><strong>Ιδίοτητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
 
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
@@ -338,7 +338,7 @@ def main():
         # Inside the third column
         with col6:
             #st.subheader("Ποιότητα υπηρεσιών υγείας: Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ")
-            st.markdown("<h3 style='font-size:32px;'><strong>Ποιότητα υπηρεσιών υγείας:</strong> Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 ><strong>Ποιότητα υπηρεσιών υγείας:</strong> Η εφαρμογή του πλαισίου διασφάλισης Ποιότητας του ΟΔΙΠΥ</h3>", unsafe_allow_html=True)
 
             chart_data3=percentage_data.iloc[2:3,:]
             # chart_data3 = pd.DataFrame(
