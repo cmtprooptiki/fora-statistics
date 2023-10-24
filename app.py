@@ -151,9 +151,9 @@ def main():
             with col0:
                 st.image('https://healthcare-management.gr/wp-content/uploads/2023/10/Group-29-1.png',width=400)
             with col01:
-                st.markdown("""<h3>Έρευνα που αφορά τις Προκλήσεις στην 
-                            Οργάνωση & Διοίκηση των Νοσοκομειακών 
-                            Μονάδων</h3>""",unsafe_allow_html=True)
+                st.markdown("""<h3><span>Έρευνα που αφορά τις Προκλήσεις στην</span> 
+                            <span> Οργάνωση & Διοίκηση των Νοσοκομειακών</span>  
+                            <span> Μονάδων</span> </h3>""",unsafe_allow_html=True)
 
 
 
