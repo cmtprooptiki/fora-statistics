@@ -55,3 +55,6 @@ body{
     font-weight: 800;
     font-size: 18px;
 }
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.st-emotion-cache-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(6) > div > div > div:nth-child(1){ 
+    background-color: red !important;
+}
