@@ -63,16 +63,18 @@ def main():
     st.markdown(
         """
         <style>
+        
         .header {
-            background-image: url('https://healthcare-management.gr/wp-content/uploads/2023/10/Header.png'); /* Specify the URL of your image */
-            background-size: cover;
-            background-position: center;
-            height: 300px; /* Adjust the height as needed */
-            width: 100%;
-            position: relative;
-            color: white;
-            text-align: center;
-        }
+    background-image: url('https://healthcare-management.gr/wp-content/uploads/2023/10/Header.png');
+    background-size: cover;
+    background-position: center;
+    height: 453px;
+    width: -webkit-fill-available;
+    position: revert-layer;
+    color: white;
+    text-align: center;
+}
+      
         .header-text {
             padding: 100px 0;
             font-size: 24px;
