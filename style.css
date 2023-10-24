@@ -56,10 +56,10 @@ body{
     font-size: 18px;
 }
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.st-emotion-cache-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(6) > div > div > div:nth-child(1){ 
-    border-radius: 40px;
-    border-width: 3px;
-    border-style: solid;
-    border-image: 
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source:
     linear-gradient(
       to right, 
       #1BDAFF, #154AAD
