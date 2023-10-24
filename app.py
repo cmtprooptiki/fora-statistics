@@ -159,8 +159,7 @@ def main():
                             <span> Οργάνωση & Διοίκηση των Νοσοκομειακών</span>  <br>
                             <span> Μονάδων</span> </h3>""",unsafe_allow_html=True)
 
-    with st.container():
-        st.markdown("""<div><br></br><br></br><br></br></div>""",unsafe_allow_html=True)
+    
 
     #Create three columns
     with st.container():
@@ -194,6 +193,9 @@ def main():
             # Display the chart in your Streamlit app
             st.plotly_chart(fig,use_container_width=True)
             st.markdown("</div>",unsafe_allow_html=True)
+
+    with st.container():
+        st.markdown("""<div><br></br></div>""",unsafe_allow_html=True)
 
     #FILTRO GIA IDIOTHTA
     # Set the default selection to "Total"
