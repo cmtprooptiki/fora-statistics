@@ -89,7 +89,6 @@ def main():
     ,unsafe_allow_html=True)
 
     # The content of your Streamlit app goes below the header
-    st.write("Your Streamlit App Content Goes Here")
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
             js_code = file.read()
