@@ -14,7 +14,7 @@ def html_button1(js_code,val):
                                 <div style="text-align:right;">
 
                                 </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 148 147" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 148 147" fill="none">
                                 <path opacity="0.2" d="M146.27 57.5885C146.877 60.2959 147.331 63.0463 147.569 65.6678C151.574 102.411 127.285 137.028 90.03 145.236C52.7746 153.444 16.0386 132.257 4.00259 97.2759C3.11504 94.8048 2.33573 92.1189 1.7296 89.4115C1.12346 86.704 0.668865 83.9536 0.430742 81.3321C-3.57406 44.5886 20.7145 9.97227 57.97 1.76406C95.2254 -6.44416 131.961 14.7425 143.997 49.7241C144.885 52.1951 145.664 54.8811 146.27 57.5885Z" fill="url(#paint0_linear_280_1268)" fill-opacity="0.4"/>
                                 <defs>
                                 <linearGradient id="paint0_linear_280_1268" x1="0.0194379" y1="73.5107" x2="148.002" y2="73.5107" gradientUnits="userSpaceOnUse">
