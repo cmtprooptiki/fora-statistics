@@ -56,7 +56,7 @@ def main():
     with col3:
         pass
 
-    st.markdown("<h1 style='text-align:center;background: #f7f7f7;border-radius: 9px;padding: 25px;'>Οπτικοποιήση αποτελέσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;background: #f7f7f7;border-radius: 9px;padding: 25px;'>Οπτικοποίηση αποτελεσμάτων για την έρευνα που αφορά τις Προκλήσεις στην Οργάνωση & Διοίκηση των Νοσοκομειακών Μονάδων</h1>", unsafe_allow_html=True)
 
                 # Load the JavaScript function code
     with open("animated_counter.js", "r") as file:
@@ -126,7 +126,7 @@ def main():
         html(html_content1,height=250)
 
     with col2:
-        st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδίοτητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδιότητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
 
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
