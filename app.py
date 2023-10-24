@@ -126,7 +126,7 @@ def main():
         html(html_content1,height=250)
 
     with col2:
-        st.markdown("<h3 style='text-align: center; color: grey; font-size:32px;'><strong>Ιδίοτητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-size:32px;'><strong>Ιδίοτητα Ερωτηθέντων<strong></h3>", unsafe_allow_html=True)
 
         idiotita_counts=dfdata["idiotita"].value_counts()
         fig = px.pie(dfdata,values=idiotita_counts.values, names=idiotita_counts.index, hole=0.6)
@@ -138,7 +138,7 @@ def main():
         fig.update_layout(width=800, height=500)
 
         # Change background color to red
-        fig.update_layout(paper_bgcolor='red')
+        # fig.update_layout(paper_bgcolor='red')
 
         # Set the border radius to 16px
         #fig.update_layout(autosize=False, margin=dict(l=0, r=0, b=0, t=0), hovermode='closest', showlegend=False, xaxis=dict(showgrid=False, zeroline=False), yaxis=dict(showgrid=False, zeroline=False), yaxis_zeroline=False)
