@@ -333,8 +333,8 @@ def main():
                     order=alt.Order("variable", sort="ascending"),
                 )
                 .properties(
-    width='container',
-    height='container'
+    width=200,
+    height=100
 )
 .configure_axis(
     labelFontSize=10,
